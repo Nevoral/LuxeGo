@@ -6,11 +6,11 @@ import (
 
 //Output - 
 func Output(tags ...lx.Content) *OutputTag {
-	return &OutputTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "output", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &OutputTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "output", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type OutputTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //For - 

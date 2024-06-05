@@ -6,9 +6,9 @@ import (
 
 //Legend - 
 func Legend(tags ...lx.Content) *LegendTag {
-	return &LegendTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "legend", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &LegendTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "legend", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type LegendTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

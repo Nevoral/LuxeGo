@@ -6,9 +6,9 @@ import (
 
 //Dd - 
 func Dd(tags ...lx.Content) *DdTag {
-	return &DdTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "dd", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &DdTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "dd", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type DdTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

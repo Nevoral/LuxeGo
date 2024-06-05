@@ -6,11 +6,11 @@ import (
 
 //Base - 
 func Base() *BaseTag {
-	return &BaseTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "base", Attributes: &lx.Attributes{}, Children: nil}}}
+	return &BaseTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "base", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type BaseTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Href - Specifies the URL of the page the link goes to.

@@ -6,11 +6,11 @@ import (
 
 //Textarea - 
 func Textarea(tags ...lx.Content) *TextareaTag {
-	return &TextareaTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "textarea", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &TextareaTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "textarea", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type TextareaTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Autocapitalize - Controls whether and how text input is automatically capitalized.

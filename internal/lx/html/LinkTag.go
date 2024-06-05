@@ -6,11 +6,11 @@ import (
 
 //Link - 
 func Link() *LinkTag {
-	return &LinkTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "link", Attributes: &lx.Attributes{}, Children: nil}}}
+	return &LinkTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "link", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type LinkTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //As - 

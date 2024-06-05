@@ -6,9 +6,9 @@ import (
 
 //Hgroup - 
 func Hgroup(tags ...lx.Content) *HgroupTag {
-	return &HgroupTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "hgroup", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &HgroupTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "hgroup", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type HgroupTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

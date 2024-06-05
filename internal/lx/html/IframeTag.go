@@ -6,11 +6,11 @@ import (
 
 //Iframe - 
 func Iframe(tags ...lx.Content) *IframeTag {
-	return &IframeTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "iframe", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &IframeTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "iframe", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type IframeTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Allow - 

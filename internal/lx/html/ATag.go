@@ -6,11 +6,11 @@ import (
 
 //A - 
 func A(tags ...lx.Content) *ATag {
-	return &ATag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "a", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &ATag{ComponentHtmlTag: &ComponentHtmlTag{Name: "a", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type ATag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Download - Specifies that the target will be downloaded when a user clicks on the hyperlink.

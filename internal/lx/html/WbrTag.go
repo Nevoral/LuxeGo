@@ -6,9 +6,9 @@ import (
 
 //Wbr - 
 func Wbr() *WbrTag {
-	return &WbrTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "wbr", Attributes: &lx.Attributes{}, Children: nil}}}
+	return &WbrTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "wbr", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type WbrTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

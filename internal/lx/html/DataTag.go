@@ -6,11 +6,11 @@ import (
 
 //Data - 
 func Data(tags ...lx.Content) *DataTag {
-	return &DataTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "data", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &DataTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "data", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type DataTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Value - Specifies the value of an <input> element.

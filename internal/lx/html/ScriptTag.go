@@ -6,11 +6,11 @@ import (
 
 //Script - 
 func Script(tags ...lx.Content) *ScriptTag {
-	return &ScriptTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "script", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &ScriptTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "script", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type ScriptTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Async - Indicates that the script should be executed asynchronously.

@@ -6,9 +6,9 @@ import (
 
 //Head - 
 func Head(tags ...lx.Content) *HeadTag {
-	return &HeadTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "head", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &HeadTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "head", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type HeadTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

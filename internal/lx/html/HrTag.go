@@ -6,9 +6,9 @@ import (
 
 //Hr - 
 func Hr() *HrTag {
-	return &HrTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "hr", Attributes: &lx.Attributes{}, Children: nil}}}
+	return &HrTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "hr", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type HrTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

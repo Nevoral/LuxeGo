@@ -6,9 +6,9 @@ import (
 
 //Sub - 
 func Sub(tags ...lx.Content) *SubTag {
-	return &SubTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "sub", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &SubTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "sub", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type SubTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

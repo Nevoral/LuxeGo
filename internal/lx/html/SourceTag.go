@@ -6,11 +6,11 @@ import (
 
 //Source - 
 func Source() *SourceTag {
-	return &SourceTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "source", Attributes: &lx.Attributes{}, Children: nil}}}
+	return &SourceTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "source", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type SourceTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Type - Specifies the type of an <input> element.

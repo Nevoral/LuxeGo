@@ -6,11 +6,11 @@ import (
 
 //Input - 
 func Input() *InputTag {
-	return &InputTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "input", Attributes: &lx.Attributes{}, Children: nil}}}
+	return &InputTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "input", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type InputTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Accept - Defines the file types the file input should accept

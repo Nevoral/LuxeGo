@@ -6,11 +6,11 @@ import (
 
 //Html - 
 func Html(tags ...lx.Content) *HtmlTag {
-	return &HtmlTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "html", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &HtmlTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "html", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type HtmlTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Xmlns - 

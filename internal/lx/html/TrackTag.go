@@ -6,11 +6,11 @@ import (
 
 //Track - 
 func Track() *TrackTag {
-	return &TrackTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "track", Attributes: &lx.Attributes{}, Children: nil}}}
+	return &TrackTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "track", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type TrackTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Default - 

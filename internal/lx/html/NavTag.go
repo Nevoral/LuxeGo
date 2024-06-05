@@ -6,9 +6,9 @@ import (
 
 //Nav - 
 func Nav(tags ...lx.Content) *NavTag {
-	return &NavTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "nav", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &NavTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "nav", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type NavTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

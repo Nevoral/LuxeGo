@@ -2,577 +2,579 @@ package html
 
 import "LuxeGo/internal/lx"
 
-type ComponentTag struct {
-	*lx.WebComponent
+type ComponentHtmlTag struct {
+	Name       string
+	Attributes *lx.Attributes
+	Msg        string
+	Children   *[]lx.Content
 }
 
+//Hidden - 
+func (c *ComponentHtmlTag) Hidden(value string) *ComponentHtmlTag {
+	c.AddAttribute("hidden", value)
+	return c
+}
+
+//ItemRef - 
+func (c *ComponentHtmlTag) ItemRef(value string) *ComponentHtmlTag {
+	c.AddAttribute("itemref", value)
+	return c
+}
+
+//Part - 
+func (c *ComponentHtmlTag) Part(value string) *ComponentHtmlTag {
+	c.AddAttribute("part", value)
+	return c
+}
 
 //Autofocus - 
-func (c *ComponentTag) Autofocus(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Autofocus(value string) *ComponentHtmlTag {
 	c.AddAttribute("autofocus", value)
 	return c
 }
 
-//Data - 
-func (c *ComponentTag) Data(value string) *ComponentTag {
-	c.AddAttribute("data", value)
+//Class - 
+func (c *ComponentHtmlTag) Class(value string) *ComponentHtmlTag {
+	c.AddAttribute("class", value)
+	return c
+}
+
+//ExportParts - 
+func (c *ComponentHtmlTag) ExportParts(value string) *ComponentHtmlTag {
+	c.AddAttribute("exportparts", value)
 	return c
 }
 
 //InputMode - 
-func (c *ComponentTag) InputMode(value string) *ComponentTag {
+func (c *ComponentHtmlTag) InputMode(value string) *ComponentHtmlTag {
 	c.AddAttribute("inputmode", value)
 	return c
 }
 
-//Popover - 
-func (c *ComponentTag) Popover() *ComponentTag {
-	c.AddAttribute("popover", "")
+//Role - 
+func (c *ComponentHtmlTag) Role(value string) *ComponentHtmlTag {
+	c.AddAttribute("role", value)
 	return c
 }
 
-//VirtualKeyBoardPolicy - 
-func (c *ComponentTag) VirtualKeyBoardPolicy(value string) *ComponentTag {
-	c.AddAttribute("virtualkeyboardpolicy", value)
+//Tabindex - 
+func (c *ComponentHtmlTag) Tabindex(value string) *ComponentHtmlTag {
+	c.AddAttribute("tabindex", value)
 	return c
 }
 
 //Aria - 
-func (c *ComponentTag) Aria(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Aria(value string) *ComponentHtmlTag {
 	c.AddAttribute("aria", value)
 	return c
 }
 
-//Autocapitalize - 
-func (c *ComponentTag) Autocapitalize(value string) *ComponentTag {
-	c.AddAttribute("autocapitalize", value)
+//EnterKeyHint - 
+func (c *ComponentHtmlTag) EnterKeyHint(value string) *ComponentHtmlTag {
+	c.AddAttribute("enterkeyhint", value)
 	return c
 }
 
-//ItemType - 
-func (c *ComponentTag) ItemType(value string) *ComponentTag {
-	c.AddAttribute("itemtype", value)
+//Id - 
+func (c *ComponentHtmlTag) Id(value string) *ComponentHtmlTag {
+	c.AddAttribute("id", value)
+	return c
+}
+
+//ItemProp - 
+func (c *ComponentHtmlTag) ItemProp(value string) *ComponentHtmlTag {
+	c.AddAttribute("itemprop", value)
 	return c
 }
 
 //Nonce - 
-func (c *ComponentTag) Nonce(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Nonce(value string) *ComponentHtmlTag {
 	c.AddAttribute("nonce", value)
 	return c
 }
 
+//Title - 
+func (c *ComponentHtmlTag) Title(value string) *ComponentHtmlTag {
+	c.AddAttribute("title", value)
+	return c
+}
+
 //AccessKey - 
-func (c *ComponentTag) AccessKey(value string) *ComponentTag {
+func (c *ComponentHtmlTag) AccessKey(value string) *ComponentHtmlTag {
 	c.AddAttribute("accesskey", value)
 	return c
 }
 
 //Contenteditable - 
-func (c *ComponentTag) Contenteditable(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Contenteditable(value string) *ComponentHtmlTag {
 	c.AddAttribute("contenteditable", value)
 	return c
 }
 
-//Is - 
-func (c *ComponentTag) Is(value string) *ComponentTag {
-	c.AddAttribute("is", value)
-	return c
-}
-
-//ItemRef - 
-func (c *ComponentTag) ItemRef(value string) *ComponentTag {
-	c.AddAttribute("itemref", value)
-	return c
-}
-
-//ItemScope - 
-func (c *ComponentTag) ItemScope(value string) *ComponentTag {
-	c.AddAttribute("itemscope", value)
-	return c
-}
-
-//Title - 
-func (c *ComponentTag) Title(value string) *ComponentTag {
-	c.AddAttribute("title", value)
-	return c
-}
-
-//Draggable - 
-func (c *ComponentTag) Draggable(value string) *ComponentTag {
-	c.AddAttribute("draggable", value)
-	return c
-}
-
-//Inert - 
-func (c *ComponentTag) Inert(value string) *ComponentTag {
-	c.AddAttribute("inert", value)
-	return c
-}
-
-//Role - 
-func (c *ComponentTag) Role(value string) *ComponentTag {
-	c.AddAttribute("role", value)
-	return c
-}
-
-//Style - 
-func (c *ComponentTag) Style(value string) *ComponentTag {
-	c.AddAttribute("style", value)
-	return c
-}
-
-//Id - 
-func (c *ComponentTag) Id(value string) *ComponentTag {
-	c.AddAttribute("id", value)
+//Data - 
+func (c *ComponentHtmlTag) Data(value string) *ComponentHtmlTag {
+	c.AddAttribute("data", value)
 	return c
 }
 
 //Lang - 
-func (c *ComponentTag) Lang(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Lang(value string) *ComponentHtmlTag {
 	c.AddAttribute("lang", value)
 	return c
 }
 
-//ItemProp - 
-func (c *ComponentTag) ItemProp(value string) *ComponentTag {
-	c.AddAttribute("itemprop", value)
-	return c
-}
-
-//Spellcheck - 
-func (c *ComponentTag) Spellcheck(value string) *ComponentTag {
-	c.AddAttribute("spellcheck", value)
-	return c
-}
-
-//Dir - 
-func (c *ComponentTag) Dir(value string) *ComponentTag {
-	c.AddAttribute("dir", value)
-	return c
-}
-
-//Hidden - 
-func (c *ComponentTag) Hidden(value string) *ComponentTag {
-	c.AddAttribute("hidden", value)
-	return c
-}
-
-//Part - 
-func (c *ComponentTag) Part(value string) *ComponentTag {
-	c.AddAttribute("part", value)
-	return c
-}
-
-//EnterKeyHint - 
-func (c *ComponentTag) EnterKeyHint(value string) *ComponentTag {
-	c.AddAttribute("enterkeyhint", value)
-	return c
-}
-
-//ExportParts - 
-func (c *ComponentTag) ExportParts(value string) *ComponentTag {
-	c.AddAttribute("exportparts", value)
-	return c
-}
-
-//Tabindex - 
-func (c *ComponentTag) Tabindex(value string) *ComponentTag {
-	c.AddAttribute("tabindex", value)
+//Popover - 
+func (c *ComponentHtmlTag) Popover() *ComponentHtmlTag {
+	c.AddAttribute("popover", "")
 	return c
 }
 
 //Slot - 
-func (c *ComponentTag) Slot(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Slot(value string) *ComponentHtmlTag {
 	c.AddAttribute("slot", value)
 	return c
 }
 
+//Autocapitalize - 
+func (c *ComponentHtmlTag) Autocapitalize(value string) *ComponentHtmlTag {
+	c.AddAttribute("autocapitalize", value)
+	return c
+}
+
 //Translate - 
-func (c *ComponentTag) Translate(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Translate(value string) *ComponentHtmlTag {
 	c.AddAttribute("translate", value)
 	return c
 }
 
-//Class - 
-func (c *ComponentTag) Class(value string) *ComponentTag {
-	c.AddAttribute("class", value)
+//Dir - 
+func (c *ComponentHtmlTag) Dir(value string) *ComponentHtmlTag {
+	c.AddAttribute("dir", value)
+	return c
+}
+
+//ItemScope - 
+func (c *ComponentHtmlTag) ItemScope(value string) *ComponentHtmlTag {
+	c.AddAttribute("itemscope", value)
+	return c
+}
+
+//Draggable - 
+func (c *ComponentHtmlTag) Draggable(value string) *ComponentHtmlTag {
+	c.AddAttribute("draggable", value)
+	return c
+}
+
+//Is - 
+func (c *ComponentHtmlTag) Is(value string) *ComponentHtmlTag {
+	c.AddAttribute("is", value)
 	return c
 }
 
 //ItemId - 
-func (c *ComponentTag) ItemId(value string) *ComponentTag {
+func (c *ComponentHtmlTag) ItemId(value string) *ComponentHtmlTag {
 	c.AddAttribute("itemid", value)
 	return c
 }
 
-//Onmouseenter - 
-func (c *ComponentTag) Onmouseenter(value string) *ComponentTag {
-	c.AddAttribute("onmouseenter", value)
+//ItemType - 
+func (c *ComponentHtmlTag) ItemType(value string) *ComponentHtmlTag {
+	c.AddAttribute("itemtype", value)
+	return c
+}
+
+//Spellcheck - 
+func (c *ComponentHtmlTag) Spellcheck(value string) *ComponentHtmlTag {
+	c.AddAttribute("spellcheck", value)
+	return c
+}
+
+//Style - 
+func (c *ComponentHtmlTag) Style(value string) *ComponentHtmlTag {
+	c.AddAttribute("style", value)
+	return c
+}
+
+//Inert - 
+func (c *ComponentHtmlTag) Inert(value string) *ComponentHtmlTag {
+	c.AddAttribute("inert", value)
+	return c
+}
+
+//VirtualKeyBoardPolicy - 
+func (c *ComponentHtmlTag) VirtualKeyBoardPolicy(value string) *ComponentHtmlTag {
+	c.AddAttribute("virtualkeyboardpolicy", value)
+	return c
+}
+
+//Onprogress - 
+func (c *ComponentHtmlTag) Onprogress(value string) *ComponentHtmlTag {
+	c.AddAttribute("onprogress", value)
 	return c
 }
 
 //Onreset - 
-func (c *ComponentTag) Onreset(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Onreset(value string) *ComponentHtmlTag {
 	c.AddAttribute("onreset", value)
 	return c
 }
 
-//Onseeking - 
-func (c *ComponentTag) Onseeking(value string) *ComponentTag {
-	c.AddAttribute("onseeking", value)
+//Onclick - 
+func (c *ComponentHtmlTag) Onclick(value string) *ComponentHtmlTag {
+	c.AddAttribute("onclick", value)
 	return c
 }
 
-//Onselect - 
-func (c *ComponentTag) Onselect(value string) *ComponentTag {
-	c.AddAttribute("onselect", value)
+//Ondragover - 
+func (c *ComponentHtmlTag) Ondragover(value string) *ComponentHtmlTag {
+	c.AddAttribute("ondragover", value)
 	return c
 }
 
-//Onkeydown - 
-func (c *ComponentTag) Onkeydown(value string) *ComponentTag {
-	c.AddAttribute("onkeydown", value)
-	return c
-}
-
-//Onloadeddata - 
-func (c *ComponentTag) Onloadeddata(value string) *ComponentTag {
-	c.AddAttribute("onloadeddata", value)
-	return c
-}
-
-//Onloadedmetadata - 
-func (c *ComponentTag) Onloadedmetadata(value string) *ComponentTag {
-	c.AddAttribute("onloadedmetadata", value)
-	return c
-}
-
-//Onmousewheel - 
-func (c *ComponentTag) Onmousewheel(value string) *ComponentTag {
-	c.AddAttribute("onmousewheel", value)
-	return c
-}
-
-//Oncontextmenu - 
-func (c *ComponentTag) Oncontextmenu(value string) *ComponentTag {
-	c.AddAttribute("oncontextmenu", value)
-	return c
-}
-
-//Onerror - 
-func (c *ComponentTag) Onerror(value string) *ComponentTag {
-	c.AddAttribute("onerror", value)
+//Ondurationchange - 
+func (c *ComponentHtmlTag) Ondurationchange(value string) *ComponentHtmlTag {
+	c.AddAttribute("ondurationchange", value)
 	return c
 }
 
 //Onmousedown - 
-func (c *ComponentTag) Onmousedown(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Onmousedown(value string) *ComponentHtmlTag {
 	c.AddAttribute("onmousedown", value)
 	return c
 }
 
+//Onautocompleteerror - 
+func (c *ComponentHtmlTag) Onautocompleteerror(value string) *ComponentHtmlTag {
+	c.AddAttribute("onautocompleteerror", value)
+	return c
+}
+
+//Ondrag - 
+func (c *ComponentHtmlTag) Ondrag(value string) *ComponentHtmlTag {
+	c.AddAttribute("ondrag", value)
+	return c
+}
+
+//Onvolumechange - 
+func (c *ComponentHtmlTag) Onvolumechange(value string) *ComponentHtmlTag {
+	c.AddAttribute("onvolumechange", value)
+	return c
+}
+
+//Onsort - 
+func (c *ComponentHtmlTag) Onsort(value string) *ComponentHtmlTag {
+	c.AddAttribute("onsort", value)
+	return c
+}
+
+//Onsuspend - 
+func (c *ComponentHtmlTag) Onsuspend(value string) *ComponentHtmlTag {
+	c.AddAttribute("onsuspend", value)
+	return c
+}
+
+//Onwaiting - 
+func (c *ComponentHtmlTag) Onwaiting(value string) *ComponentHtmlTag {
+	c.AddAttribute("onwaiting", value)
+	return c
+}
+
+//Oncanplay - 
+func (c *ComponentHtmlTag) Oncanplay(value string) *ComponentHtmlTag {
+	c.AddAttribute("oncanplay", value)
+	return c
+}
+
+//Onemptied - 
+func (c *ComponentHtmlTag) Onemptied(value string) *ComponentHtmlTag {
+	c.AddAttribute("onemptied", value)
+	return c
+}
+
+//Onkeyup - 
+func (c *ComponentHtmlTag) Onkeyup(value string) *ComponentHtmlTag {
+	c.AddAttribute("onkeyup", value)
+	return c
+}
+
+//Onshow - 
+func (c *ComponentHtmlTag) Onshow(value string) *ComponentHtmlTag {
+	c.AddAttribute("onshow", value)
+	return c
+}
+
+//Onloadeddata - 
+func (c *ComponentHtmlTag) Onloadeddata(value string) *ComponentHtmlTag {
+	c.AddAttribute("onloadeddata", value)
+	return c
+}
+
+//Onselect - 
+func (c *ComponentHtmlTag) Onselect(value string) *ComponentHtmlTag {
+	c.AddAttribute("onselect", value)
+	return c
+}
+
+//Oncancel - 
+func (c *ComponentHtmlTag) Oncancel(value string) *ComponentHtmlTag {
+	c.AddAttribute("oncancel", value)
+	return c
+}
+
+//Ondragenter - 
+func (c *ComponentHtmlTag) Ondragenter(value string) *ComponentHtmlTag {
+	c.AddAttribute("ondragenter", value)
+	return c
+}
+
+//Onended - 
+func (c *ComponentHtmlTag) Onended(value string) *ComponentHtmlTag {
+	c.AddAttribute("onended", value)
+	return c
+}
+
+//Onresize - 
+func (c *ComponentHtmlTag) Onresize(value string) *ComponentHtmlTag {
+	c.AddAttribute("onresize", value)
+	return c
+}
+
+//Ontoggle - 
+func (c *ComponentHtmlTag) Ontoggle(value string) *ComponentHtmlTag {
+	c.AddAttribute("ontoggle", value)
+	return c
+}
+
+//Onfocus - 
+func (c *ComponentHtmlTag) Onfocus(value string) *ComponentHtmlTag {
+	c.AddAttribute("onfocus", value)
+	return c
+}
+
+//Oninvalid - 
+func (c *ComponentHtmlTag) Oninvalid(value string) *ComponentHtmlTag {
+	c.AddAttribute("oninvalid", value)
+	return c
+}
+
 //Onplay - 
-func (c *ComponentTag) Onplay(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Onplay(value string) *ComponentHtmlTag {
 	c.AddAttribute("onplay", value)
 	return c
 }
 
 //Ontimeupdate - 
-func (c *ComponentTag) Ontimeupdate(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Ontimeupdate(value string) *ComponentHtmlTag {
 	c.AddAttribute("ontimeupdate", value)
 	return c
 }
 
-//Onvolumechange - 
-func (c *ComponentTag) Onvolumechange(value string) *ComponentTag {
-	c.AddAttribute("onvolumechange", value)
-	return c
-}
-
-//Ondragover - 
-func (c *ComponentTag) Ondragover(value string) *ComponentTag {
-	c.AddAttribute("ondragover", value)
-	return c
-}
-
-//Oncancel - 
-func (c *ComponentTag) Oncancel(value string) *ComponentTag {
-	c.AddAttribute("oncancel", value)
-	return c
-}
-
-//Oninvalid - 
-func (c *ComponentTag) Oninvalid(value string) *ComponentTag {
-	c.AddAttribute("oninvalid", value)
-	return c
-}
-
-//Onkeyup - 
-func (c *ComponentTag) Onkeyup(value string) *ComponentTag {
-	c.AddAttribute("onkeyup", value)
-	return c
-}
-
-//Onblur - 
-func (c *ComponentTag) Onblur(value string) *ComponentTag {
-	c.AddAttribute("onblur", value)
-	return c
-}
-
-//Ondurationchange - 
-func (c *ComponentTag) Ondurationchange(value string) *ComponentTag {
-	c.AddAttribute("ondurationchange", value)
-	return c
-}
-
-//Onsuspend - 
-func (c *ComponentTag) Onsuspend(value string) *ComponentTag {
-	c.AddAttribute("onsuspend", value)
-	return c
-}
-
-//Onclick - 
-func (c *ComponentTag) Onclick(value string) *ComponentTag {
-	c.AddAttribute("onclick", value)
-	return c
-}
-
-//Onended - 
-func (c *ComponentTag) Onended(value string) *ComponentTag {
-	c.AddAttribute("onended", value)
-	return c
-}
-
-//Oninput - 
-func (c *ComponentTag) Oninput(value string) *ComponentTag {
-	c.AddAttribute("oninput", value)
-	return c
-}
-
-//Onmouseleave - 
-func (c *ComponentTag) Onmouseleave(value string) *ComponentTag {
-	c.AddAttribute("onmouseleave", value)
-	return c
-}
-
-//Onautocomplete - 
-func (c *ComponentTag) Onautocomplete(value string) *ComponentTag {
-	c.AddAttribute("onautocomplete", value)
-	return c
-}
-
-//Oncuechange - 
-func (c *ComponentTag) Oncuechange(value string) *ComponentTag {
-	c.AddAttribute("oncuechange", value)
-	return c
-}
-
-//Onstalled - 
-func (c *ComponentTag) Onstalled(value string) *ComponentTag {
-	c.AddAttribute("onstalled", value)
-	return c
-}
-
-//Onabort - 
-func (c *ComponentTag) Onabort(value string) *ComponentTag {
-	c.AddAttribute("onabort", value)
-	return c
-}
-
-//Onratechange - 
-func (c *ComponentTag) Onratechange(value string) *ComponentTag {
-	c.AddAttribute("onratechange", value)
-	return c
-}
-
-//Onemptied - 
-func (c *ComponentTag) Onemptied(value string) *ComponentTag {
-	c.AddAttribute("onemptied", value)
-	return c
-}
-
-//Ondrop - 
-func (c *ComponentTag) Ondrop(value string) *ComponentTag {
-	c.AddAttribute("ondrop", value)
-	return c
-}
-
-//Onfocus - 
-func (c *ComponentTag) Onfocus(value string) *ComponentTag {
-	c.AddAttribute("onfocus", value)
-	return c
-}
-
-//Onkeypress - 
-func (c *ComponentTag) Onkeypress(value string) *ComponentTag {
-	c.AddAttribute("onkeypress", value)
-	return c
-}
-
-//Onloadstart - 
-func (c *ComponentTag) Onloadstart(value string) *ComponentTag {
-	c.AddAttribute("onloadstart", value)
-	return c
-}
-
-//Onprogress - 
-func (c *ComponentTag) Onprogress(value string) *ComponentTag {
-	c.AddAttribute("onprogress", value)
-	return c
-}
-
-//Onsubmit - 
-func (c *ComponentTag) Onsubmit(value string) *ComponentTag {
-	c.AddAttribute("onsubmit", value)
-	return c
-}
-
-//Ontoggle - 
-func (c *ComponentTag) Ontoggle(value string) *ComponentTag {
-	c.AddAttribute("ontoggle", value)
-	return c
-}
-
-//Ondragenter - 
-func (c *ComponentTag) Ondragenter(value string) *ComponentTag {
-	c.AddAttribute("ondragenter", value)
-	return c
-}
-
-//Onwaiting - 
-func (c *ComponentTag) Onwaiting(value string) *ComponentTag {
-	c.AddAttribute("onwaiting", value)
-	return c
-}
-
-//Ondragleave - 
-func (c *ComponentTag) Ondragleave(value string) *ComponentTag {
-	c.AddAttribute("ondragleave", value)
-	return c
-}
-
-//Onpause - 
-func (c *ComponentTag) Onpause(value string) *ComponentTag {
-	c.AddAttribute("onpause", value)
-	return c
-}
-
-//Oncanplaythrough - 
-func (c *ComponentTag) Oncanplaythrough(value string) *ComponentTag {
-	c.AddAttribute("oncanplaythrough", value)
-	return c
-}
-
 //Onload - 
-func (c *ComponentTag) Onload(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Onload(value string) *ComponentHtmlTag {
 	c.AddAttribute("onload", value)
 	return c
 }
 
-//Onresize - 
-func (c *ComponentTag) Onresize(value string) *ComponentTag {
-	c.AddAttribute("onresize", value)
-	return c
-}
-
-//Ondrag - 
-func (c *ComponentTag) Ondrag(value string) *ComponentTag {
-	c.AddAttribute("ondrag", value)
-	return c
-}
-
-//Onplaying - 
-func (c *ComponentTag) Onplaying(value string) *ComponentTag {
-	c.AddAttribute("onplaying", value)
-	return c
-}
-
-//Onautocompleteerror - 
-func (c *ComponentTag) Onautocompleteerror(value string) *ComponentTag {
-	c.AddAttribute("onautocompleteerror", value)
-	return c
-}
-
-//Ondblclick - 
-func (c *ComponentTag) Ondblclick(value string) *ComponentTag {
-	c.AddAttribute("ondblclick", value)
-	return c
-}
-
-//Ondragstart - 
-func (c *ComponentTag) Ondragstart(value string) *ComponentTag {
-	c.AddAttribute("ondragstart", value)
-	return c
-}
-
-//Onmouseout - 
-func (c *ComponentTag) Onmouseout(value string) *ComponentTag {
-	c.AddAttribute("onmouseout", value)
-	return c
-}
-
-//Onseeked - 
-func (c *ComponentTag) Onseeked(value string) *ComponentTag {
-	c.AddAttribute("onseeked", value)
-	return c
-}
-
-//Onchange - 
-func (c *ComponentTag) Onchange(value string) *ComponentTag {
-	c.AddAttribute("onchange", value)
-	return c
-}
-
-//Onmousemove - 
-func (c *ComponentTag) Onmousemove(value string) *ComponentTag {
-	c.AddAttribute("onmousemove", value)
-	return c
-}
-
-//Onmouseover - 
-func (c *ComponentTag) Onmouseover(value string) *ComponentTag {
-	c.AddAttribute("onmouseover", value)
-	return c
-}
-
-//Onmouseup - 
-func (c *ComponentTag) Onmouseup(value string) *ComponentTag {
-	c.AddAttribute("onmouseup", value)
-	return c
-}
-
 //Onscroll - 
-func (c *ComponentTag) Onscroll(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Onscroll(value string) *ComponentHtmlTag {
 	c.AddAttribute("onscroll", value)
 	return c
 }
 
-//Oncanplay - 
-func (c *ComponentTag) Oncanplay(value string) *ComponentTag {
-	c.AddAttribute("oncanplay", value)
+//Onchange - 
+func (c *ComponentHtmlTag) Onchange(value string) *ComponentHtmlTag {
+	c.AddAttribute("onchange", value)
 	return c
 }
 
-//Ondragend - 
-func (c *ComponentTag) Ondragend(value string) *ComponentTag {
-	c.AddAttribute("ondragend", value)
+//Ondragleave - 
+func (c *ComponentHtmlTag) Ondragleave(value string) *ComponentHtmlTag {
+	c.AddAttribute("ondragleave", value)
 	return c
 }
 
-//Onshow - 
-func (c *ComponentTag) Onshow(value string) *ComponentTag {
-	c.AddAttribute("onshow", value)
+//Ondragstart - 
+func (c *ComponentHtmlTag) Ondragstart(value string) *ComponentHtmlTag {
+	c.AddAttribute("ondragstart", value)
 	return c
 }
 
-//Onsort - 
-func (c *ComponentTag) Onsort(value string) *ComponentTag {
-	c.AddAttribute("onsort", value)
+//Oninput - 
+func (c *ComponentHtmlTag) Oninput(value string) *ComponentHtmlTag {
+	c.AddAttribute("oninput", value)
 	return c
 }
 
 //Onclose - 
-func (c *ComponentTag) Onclose(value string) *ComponentTag {
+func (c *ComponentHtmlTag) Onclose(value string) *ComponentHtmlTag {
 	c.AddAttribute("onclose", value)
+	return c
+}
+
+//Ondrop - 
+func (c *ComponentHtmlTag) Ondrop(value string) *ComponentHtmlTag {
+	c.AddAttribute("ondrop", value)
+	return c
+}
+
+//Ondblclick - 
+func (c *ComponentHtmlTag) Ondblclick(value string) *ComponentHtmlTag {
+	c.AddAttribute("ondblclick", value)
+	return c
+}
+
+//Onmouseup - 
+func (c *ComponentHtmlTag) Onmouseup(value string) *ComponentHtmlTag {
+	c.AddAttribute("onmouseup", value)
+	return c
+}
+
+//Onpause - 
+func (c *ComponentHtmlTag) Onpause(value string) *ComponentHtmlTag {
+	c.AddAttribute("onpause", value)
+	return c
+}
+
+//Onratechange - 
+func (c *ComponentHtmlTag) Onratechange(value string) *ComponentHtmlTag {
+	c.AddAttribute("onratechange", value)
+	return c
+}
+
+//Onmouseover - 
+func (c *ComponentHtmlTag) Onmouseover(value string) *ComponentHtmlTag {
+	c.AddAttribute("onmouseover", value)
+	return c
+}
+
+//Onseeked - 
+func (c *ComponentHtmlTag) Onseeked(value string) *ComponentHtmlTag {
+	c.AddAttribute("onseeked", value)
+	return c
+}
+
+//Onsubmit - 
+func (c *ComponentHtmlTag) Onsubmit(value string) *ComponentHtmlTag {
+	c.AddAttribute("onsubmit", value)
+	return c
+}
+
+//Onmouseenter - 
+func (c *ComponentHtmlTag) Onmouseenter(value string) *ComponentHtmlTag {
+	c.AddAttribute("onmouseenter", value)
+	return c
+}
+
+//Onmousemove - 
+func (c *ComponentHtmlTag) Onmousemove(value string) *ComponentHtmlTag {
+	c.AddAttribute("onmousemove", value)
+	return c
+}
+
+//Onstalled - 
+func (c *ComponentHtmlTag) Onstalled(value string) *ComponentHtmlTag {
+	c.AddAttribute("onstalled", value)
+	return c
+}
+
+//Onkeypress - 
+func (c *ComponentHtmlTag) Onkeypress(value string) *ComponentHtmlTag {
+	c.AddAttribute("onkeypress", value)
+	return c
+}
+
+//Onmousewheel - 
+func (c *ComponentHtmlTag) Onmousewheel(value string) *ComponentHtmlTag {
+	c.AddAttribute("onmousewheel", value)
+	return c
+}
+
+//Onseeking - 
+func (c *ComponentHtmlTag) Onseeking(value string) *ComponentHtmlTag {
+	c.AddAttribute("onseeking", value)
+	return c
+}
+
+//Onkeydown - 
+func (c *ComponentHtmlTag) Onkeydown(value string) *ComponentHtmlTag {
+	c.AddAttribute("onkeydown", value)
+	return c
+}
+
+//Onloadedmetadata - 
+func (c *ComponentHtmlTag) Onloadedmetadata(value string) *ComponentHtmlTag {
+	c.AddAttribute("onloadedmetadata", value)
+	return c
+}
+
+//Onmouseleave - 
+func (c *ComponentHtmlTag) Onmouseleave(value string) *ComponentHtmlTag {
+	c.AddAttribute("onmouseleave", value)
+	return c
+}
+
+//Ondragend - 
+func (c *ComponentHtmlTag) Ondragend(value string) *ComponentHtmlTag {
+	c.AddAttribute("ondragend", value)
+	return c
+}
+
+//Onerror - 
+func (c *ComponentHtmlTag) Onerror(value string) *ComponentHtmlTag {
+	c.AddAttribute("onerror", value)
+	return c
+}
+
+//Onmouseout - 
+func (c *ComponentHtmlTag) Onmouseout(value string) *ComponentHtmlTag {
+	c.AddAttribute("onmouseout", value)
+	return c
+}
+
+//Onplaying - 
+func (c *ComponentHtmlTag) Onplaying(value string) *ComponentHtmlTag {
+	c.AddAttribute("onplaying", value)
+	return c
+}
+
+//Oncontextmenu - 
+func (c *ComponentHtmlTag) Oncontextmenu(value string) *ComponentHtmlTag {
+	c.AddAttribute("oncontextmenu", value)
+	return c
+}
+
+//Oncuechange - 
+func (c *ComponentHtmlTag) Oncuechange(value string) *ComponentHtmlTag {
+	c.AddAttribute("oncuechange", value)
+	return c
+}
+
+//Onloadstart - 
+func (c *ComponentHtmlTag) Onloadstart(value string) *ComponentHtmlTag {
+	c.AddAttribute("onloadstart", value)
+	return c
+}
+
+//Onabort - 
+func (c *ComponentHtmlTag) Onabort(value string) *ComponentHtmlTag {
+	c.AddAttribute("onabort", value)
+	return c
+}
+
+//Onautocomplete - 
+func (c *ComponentHtmlTag) Onautocomplete(value string) *ComponentHtmlTag {
+	c.AddAttribute("onautocomplete", value)
+	return c
+}
+
+//Onblur - 
+func (c *ComponentHtmlTag) Onblur(value string) *ComponentHtmlTag {
+	c.AddAttribute("onblur", value)
+	return c
+}
+
+//Oncanplaythrough - 
+func (c *ComponentHtmlTag) Oncanplaythrough(value string) *ComponentHtmlTag {
+	c.AddAttribute("oncanplaythrough", value)
 	return c
 }

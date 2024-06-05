@@ -6,9 +6,9 @@ import (
 
 //Aside - 
 func Aside(tags ...lx.Content) *AsideTag {
-	return &AsideTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "aside", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &AsideTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "aside", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type AsideTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

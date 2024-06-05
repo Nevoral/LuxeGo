@@ -6,11 +6,11 @@ import (
 
 //Select - 
 func Select(tags ...lx.Content) *SelectTag {
-	return &SelectTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "select", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &SelectTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "select", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type SelectTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Autocomplete - Specifies whether a form or an input field should have autocomplete enabled.

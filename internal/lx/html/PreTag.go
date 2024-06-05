@@ -6,9 +6,9 @@ import (
 
 //Pre - 
 func Pre(tags ...lx.Content) *PreTag {
-	return &PreTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "pre", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &PreTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "pre", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type PreTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

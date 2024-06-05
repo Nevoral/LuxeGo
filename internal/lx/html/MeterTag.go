@@ -6,11 +6,11 @@ import (
 
 //Meter - 
 func Meter(tags ...lx.Content) *MeterTag {
-	return &MeterTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "meter", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &MeterTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "meter", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type MeterTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Value - Specifies the value of an <input> element.

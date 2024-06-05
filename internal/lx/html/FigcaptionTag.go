@@ -6,9 +6,9 @@ import (
 
 //Figcaption - 
 func Figcaption(tags ...lx.Content) *FigcaptionTag {
-	return &FigcaptionTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "figcaption", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &FigcaptionTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "figcaption", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type FigcaptionTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

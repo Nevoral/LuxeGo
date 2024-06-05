@@ -6,11 +6,11 @@ import (
 
 //Meta - 
 func Meta() *MetaTag {
-	return &MetaTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "meta", Attributes: &lx.Attributes{}, Children: nil}}}
+	return &MetaTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "meta", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type MetaTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Charset - Specifies the character encoding for the HTML document.

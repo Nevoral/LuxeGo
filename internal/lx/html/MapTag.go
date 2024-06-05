@@ -6,11 +6,11 @@ import (
 
 //Map - 
 func Map(tags ...lx.Content) *MapTag {
-	return &MapTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "map", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &MapTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "map", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type MapTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Name - 

@@ -6,11 +6,11 @@ import (
 
 //Progress - 
 func Progress(tags ...lx.Content) *ProgressTag {
-	return &ProgressTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "progress", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &ProgressTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "progress", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type ProgressTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Max - 

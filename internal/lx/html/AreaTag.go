@@ -6,11 +6,11 @@ import (
 
 //Area - 
 func Area() *AreaTag {
-	return &AreaTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "area", Attributes: &lx.Attributes{}, Children: nil}}}
+	return &AreaTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "area", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type AreaTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Alt -  Provides alternative text for an image.

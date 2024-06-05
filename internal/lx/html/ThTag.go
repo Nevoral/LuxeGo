@@ -6,11 +6,11 @@ import (
 
 //Th - 
 func Th(tags ...lx.Content) *ThTag {
-	return &ThTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "th", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &ThTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "th", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type ThTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Abbr - Specifies a shorter version of the content in a cell.

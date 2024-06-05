@@ -6,11 +6,11 @@ import (
 
 //Slot - 
 func Slot(tags ...lx.Content) *SlotTag {
-	return &SlotTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "slot", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &SlotTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "slot", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type SlotTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Name - 

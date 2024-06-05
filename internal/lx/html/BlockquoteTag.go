@@ -6,11 +6,11 @@ import (
 
 //Blockquote - 
 func Blockquote(tags ...lx.Content) *BlockquoteTag {
-	return &BlockquoteTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "blockquote", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &BlockquoteTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "blockquote", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type BlockquoteTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Cite - Specifies a reference to the source of a quote or information.

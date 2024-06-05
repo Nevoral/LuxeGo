@@ -6,11 +6,11 @@ import (
 
 //Audio - 
 func Audio(tags ...lx.Content) *AudioTag {
-	return &AudioTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "audio", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &AudioTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "audio", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type AudioTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Autoplay - Specifies that the audio or video should start playing as soon as it is ready.

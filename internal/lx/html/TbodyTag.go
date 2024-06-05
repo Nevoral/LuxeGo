@@ -6,9 +6,9 @@ import (
 
 //Tbody - 
 func Tbody(tags ...lx.Content) *TbodyTag {
-	return &TbodyTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "tbody", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &TbodyTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "tbody", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type TbodyTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

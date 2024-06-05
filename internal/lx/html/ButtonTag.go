@@ -6,11 +6,11 @@ import (
 
 //Button - 
 func Button(tags ...lx.Content) *ButtonTag {
-	return &ButtonTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "button", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &ButtonTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "button", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type ButtonTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Autofocus - Specifies that a form element should automatically get focus when the page loads.

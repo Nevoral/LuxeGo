@@ -6,11 +6,11 @@ import (
 
 //Embed - 
 func Embed() *EmbedTag {
-	return &EmbedTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "embed", Attributes: &lx.Attributes{}, Children: nil}}}
+	return &EmbedTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "embed", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type EmbedTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Height - 

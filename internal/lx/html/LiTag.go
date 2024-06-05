@@ -6,11 +6,11 @@ import (
 
 //Li - 
 func Li(tags ...lx.Content) *LiTag {
-	return &LiTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "li", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &LiTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "li", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type LiTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Value - Specifies the value of an <input> element.

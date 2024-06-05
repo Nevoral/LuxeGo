@@ -6,11 +6,11 @@ import (
 
 //Option - 
 func Option(tags ...lx.Content) *OptionTag {
-	return &OptionTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "option", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &OptionTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "option", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type OptionTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Disabled - Indicates that the user cannot interact with the element.

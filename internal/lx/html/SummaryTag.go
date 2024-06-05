@@ -6,9 +6,9 @@ import (
 
 //Summary - 
 func Summary(tags ...lx.Content) *SummaryTag {
-	return &SummaryTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "summary", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &SummaryTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "summary", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type SummaryTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

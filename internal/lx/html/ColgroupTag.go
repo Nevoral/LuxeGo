@@ -6,11 +6,11 @@ import (
 
 //Colgroup - 
 func Colgroup(tags ...lx.Content) *ColgroupTag {
-	return &ColgroupTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "colgroup", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &ColgroupTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "colgroup", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type ColgroupTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Span - 

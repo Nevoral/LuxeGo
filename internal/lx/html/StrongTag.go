@@ -6,9 +6,9 @@ import (
 
 //Strong - 
 func Strong(tags ...lx.Content) *StrongTag {
-	return &StrongTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "strong", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &StrongTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "strong", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type StrongTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

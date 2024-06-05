@@ -6,11 +6,11 @@ import (
 
 //Optgroup - 
 func Optgroup(tags ...lx.Content) *OptgroupTag {
-	return &OptgroupTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "optgroup", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &OptgroupTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "optgroup", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type OptgroupTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Disabled - Indicates that the user cannot interact with the element.

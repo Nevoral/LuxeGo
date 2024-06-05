@@ -6,11 +6,11 @@ import (
 
 //Img - 
 func Img() *ImgTag {
-	return &ImgTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "img", Attributes: &lx.Attributes{}, Children: nil}}}
+	return &ImgTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "img", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type ImgTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Alt -  Provides alternative text for an image.

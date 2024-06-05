@@ -6,11 +6,11 @@ import (
 
 //Col - 
 func Col() *ColTag {
-	return &ColTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "col", Attributes: &lx.Attributes{}, Children: nil}}}
+	return &ColTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "col", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type ColTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Span - 

@@ -6,11 +6,11 @@ import (
 
 //Form - 
 func Form(tags ...lx.Content) *FormTag {
-	return &FormTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "form", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &FormTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "form", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type FormTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Accept - Defines the file types the file input should accept

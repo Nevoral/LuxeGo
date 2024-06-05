@@ -6,11 +6,11 @@ import (
 
 //Dialog - 
 func Dialog(tags ...lx.Content) *DialogTag {
-	return &DialogTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "dialog", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &DialogTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "dialog", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type DialogTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Open - 

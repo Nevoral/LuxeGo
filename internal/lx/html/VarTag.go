@@ -6,9 +6,9 @@ import (
 
 //Var - 
 func Var(tags ...lx.Content) *VarTag {
-	return &VarTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "var", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &VarTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "var", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type VarTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

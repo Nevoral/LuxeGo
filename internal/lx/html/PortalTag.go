@@ -6,11 +6,11 @@ import (
 
 //Portal - 
 func Portal(tags ...lx.Content) *PortalTag {
-	return &PortalTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "portal", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &PortalTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "portal", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type PortalTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Referrerpolicy - 

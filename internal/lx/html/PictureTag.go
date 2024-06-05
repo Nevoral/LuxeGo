@@ -6,9 +6,9 @@ import (
 
 //Picture - 
 func Picture(tags ...lx.Content) *PictureTag {
-	return &PictureTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "picture", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &PictureTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "picture", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type PictureTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

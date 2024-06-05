@@ -2,7 +2,7 @@ package internal
 
 import (
 	"LuxeGo/configuration"
-	html "LuxeGo/internal/templates/html"
+	tmpl "LuxeGo/internal/templates"
 	"fmt"
 	"os"
 	"slices"
@@ -18,36 +18,83 @@ import (
 
 %s`
 	for key, val := range configuration.HtmlAtrTable {
-		if key == "!DOCTYPE" || key == "!--" {
+		if key == "!DOCTYPE" || key == "!--" || key == "" {
 			continue
 		}
 		content := ""
 		tagName := capitalizeFirst(key)
-		content += html.TagCaller(tagName, "", slices.Contains(configuration.SelfClosingHtmlTag, key))
+		content += tmpl.TagCaller(tagName, "", slices.Contains(configuration.SelfClosingHtmlTag, key))
 		for _, atr := range val {
-			content += html.TagMethod(tagName, capitalizeFirst(atr), configuration.SpecificAtrTable[atr], slices.Contains(configuration.BoolAtr, atr))
+			content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SpecificAtrTable[atr], slices.Contains(configuration.BoolAtr, atr))
 		}
 		CreateFile(fmt.Sprintf("internal/lx/html/%sTag.go", tagName), fmt.Sprintf(page, content))
 	}
 }
+
 func GenerataGlobalAtr() {
 	page := `package html
 
 import "LuxeGo/internal/lx"
 
-type ComponentTag struct {
-	*lx.WebComponent
+type ComponentHtmlTag struct {
+	Name       string
+	Attributes *lx.Attributes
+	Msg        string
+	Children   *[]lx.Content
 }
-
 %s`
 	content := ""
 	for atr, comment := range configuration.GlobalAtrTable {
-		content += html.TagMethod("Component", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolAtr, atr))
+		content += tmpl.TagMethod("ComponentHtml", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolAtr, atr))
 	}
 	for atr, comment := range configuration.GlobalEventAtrTable {
-		content += html.TagMethod("Component", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolAtr, atr))
+		content += tmpl.TagMethod("ComponentHtml", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolAtr, atr))
 	}
 	CreateFile(fmt.Sprintf("internal/lx/html/a_Component.go"), fmt.Sprintf(page, content))
+}
+
+func GenerateSvgTags() {
+	page := `package svg
+
+import (
+	"LuxeGo/internal/lx"
+)
+
+%s`
+	for key, val := range configuration.SvgAtrTable {
+		if key == "!DOCTYPE" || key == "!--" || key == "" {
+			continue
+		}
+		content := ""
+		tagName := capitalizeFirst(key)
+		content += tmpl.TagCaller(tagName, "", slices.Contains(configuration.SvgSelfClosing, key))
+		for _, atr := range val {
+			content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SvgSoecificAtr[atr], slices.Contains(configuration.BoolSvgAtr, atr))
+		}
+		CreateFile(fmt.Sprintf("internal/lx/svg/%sTag.go", tagName), fmt.Sprintf(page, content))
+	}
+}
+
+func GenerataGlobalAtrSvg() {
+	page := `package svg
+
+import "LuxeGo/internal/lx"
+
+type ComponentSvgTag struct {
+	Name       string
+	Attributes *lx.Attributes
+	Msg        string
+	Children   *[]lx.Content
+}
+%s`
+	content := ""
+	for atr, comment := range configuration.SvgGlobalAtr {
+		content += tmpl.TagMethod("ComponentSvg", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolSvgAtr, atr))
+	}
+	for atr, comment := range configuration.GlobalEventAtrTable {
+		content += tmpl.TagMethod("ComponentSvg", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolSvgAtr, atr))
+	}
+	CreateFile(fmt.Sprintf("internal/lx/svg/a_Component.go"), fmt.Sprintf(page, content))
 }
 
 func capitalizeFirst(s string) string {

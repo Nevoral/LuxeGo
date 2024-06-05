@@ -6,11 +6,11 @@ import (
 
 //Body - 
 func Body(tags ...lx.Content) *BodyTag {
-	return &BodyTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "body", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &BodyTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "body", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type BodyTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Alink - Sets the color of an active link (deprecated in HTML5).

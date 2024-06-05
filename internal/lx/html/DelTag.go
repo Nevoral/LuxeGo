@@ -6,11 +6,11 @@ import (
 
 //Del - 
 func Del(tags ...lx.Content) *DelTag {
-	return &DelTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "del", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &DelTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "del", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type DelTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Cite - Specifies a reference to the source of a quote or information.

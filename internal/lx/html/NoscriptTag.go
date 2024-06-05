@@ -6,9 +6,9 @@ import (
 
 //Noscript - 
 func Noscript(tags ...lx.Content) *NoscriptTag {
-	return &NoscriptTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "noscript", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &NoscriptTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "noscript", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type NoscriptTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

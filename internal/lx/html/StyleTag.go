@@ -6,11 +6,11 @@ import (
 
 //Style - 
 func Style(tags ...lx.Content) *StyleTag {
-	return &StyleTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "style", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &StyleTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "style", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type StyleTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Blocking - 

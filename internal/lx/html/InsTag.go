@@ -6,11 +6,11 @@ import (
 
 //Ins - 
 func Ins(tags ...lx.Content) *InsTag {
-	return &InsTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "ins", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &InsTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "ins", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type InsTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Cite - Specifies a reference to the source of a quote or information.

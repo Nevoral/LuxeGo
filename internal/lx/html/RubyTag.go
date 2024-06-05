@@ -6,9 +6,9 @@ import (
 
 //Ruby - 
 func Ruby(tags ...lx.Content) *RubyTag {
-	return &RubyTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "ruby", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &RubyTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "ruby", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type RubyTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

@@ -6,11 +6,11 @@ import (
 
 //Fieldset - 
 func Fieldset(tags ...lx.Content) *FieldsetTag {
-	return &FieldsetTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "fieldset", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &FieldsetTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "fieldset", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type FieldsetTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Disabled - Indicates that the user cannot interact with the element.

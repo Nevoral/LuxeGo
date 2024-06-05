@@ -6,9 +6,9 @@ import (
 
 //Bdi - 
 func Bdi(tags ...lx.Content) *BdiTag {
-	return &BdiTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "bdi", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &BdiTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "bdi", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type BdiTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

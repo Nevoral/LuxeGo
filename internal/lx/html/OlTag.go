@@ -6,11 +6,11 @@ import (
 
 //Ol - 
 func Ol(tags ...lx.Content) *OlTag {
-	return &OlTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "ol", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &OlTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "ol", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type OlTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Reversed - 

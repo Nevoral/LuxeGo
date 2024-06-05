@@ -6,11 +6,11 @@ import (
 
 //Td - 
 func Td(tags ...lx.Content) *TdTag {
-	return &TdTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "td", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &TdTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "td", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type TdTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Colspan - Specify how many columns a cell should span in a table.

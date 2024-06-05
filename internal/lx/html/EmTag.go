@@ -6,9 +6,9 @@ import (
 
 //Em - 
 func Em(tags ...lx.Content) *EmTag {
-	return &EmTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "em", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &EmTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "em", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type EmTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

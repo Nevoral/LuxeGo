@@ -6,11 +6,11 @@ import (
 
 //Canvas - 
 func Canvas(tags ...lx.Content) *CanvasTag {
-	return &CanvasTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "canvas", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &CanvasTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "canvas", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type CanvasTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Height - 

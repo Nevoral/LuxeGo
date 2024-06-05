@@ -6,9 +6,9 @@ import (
 
 //Small - 
 func Small(tags ...lx.Content) *SmallTag {
-	return &SmallTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "small", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &SmallTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "small", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type SmallTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

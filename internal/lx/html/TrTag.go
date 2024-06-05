@@ -6,9 +6,9 @@ import (
 
 //Tr - 
 func Tr(tags ...lx.Content) *TrTag {
-	return &TrTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "tr", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &TrTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "tr", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type TrTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

@@ -6,9 +6,9 @@ import (
 
 //Datalist - 
 func Datalist(tags ...lx.Content) *DatalistTag {
-	return &DatalistTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "datalist", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &DatalistTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "datalist", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type DatalistTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

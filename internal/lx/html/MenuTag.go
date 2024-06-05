@@ -6,9 +6,9 @@ import (
 
 //Menu - 
 func Menu(tags ...lx.Content) *MenuTag {
-	return &MenuTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "menu", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &MenuTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "menu", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type MenuTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

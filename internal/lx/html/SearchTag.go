@@ -6,9 +6,9 @@ import (
 
 //Search - 
 func Search(tags ...lx.Content) *SearchTag {
-	return &SearchTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "search", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &SearchTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "search", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type SearchTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }

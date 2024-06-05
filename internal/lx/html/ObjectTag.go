@@ -6,11 +6,11 @@ import (
 
 //Object - 
 func Object(tags ...lx.Content) *ObjectTag {
-	return &ObjectTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "object", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &ObjectTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "object", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type ObjectTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
 
 //Data - 

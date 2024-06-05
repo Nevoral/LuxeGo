@@ -6,9 +6,9 @@ import (
 
 //Svg - 
 func Svg(tags ...lx.Content) *SvgTag {
-	return &SvgTag{Component: &ComponentTag{WebComponent: &lx.WebComponent{Name: "svg", Attributes: &lx.Attributes{}, Children: &tags}}}
+	return &SvgTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "svg", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type SvgTag struct {
-	*ComponentTag
+	*ComponentHtmlTag
 }
