@@ -4,40 +4,40 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Line - 
+// Line -
 func Line() *LineTag {
-	return &LineTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "line", Attributes: &lx.Attributes{}, Children: nil}}
+	return &LineTag{ComponentSvgTag: &ComponentSvgTag{Name: "line", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type LineTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//X1 - 
+// X1 -
 func (l *LineTag) X1(value string) *LineTag {
 	l.AddAttribute("x1", value)
 	return l
 }
 
-//Y1 - 
+// Y1 -
 func (l *LineTag) Y1(value string) *LineTag {
 	l.AddAttribute("y1", value)
 	return l
 }
 
-//X2 - 
+// X2 -
 func (l *LineTag) X2(value string) *LineTag {
 	l.AddAttribute("x2", value)
 	return l
 }
 
-//Y2 - 
+// Y2 -
 func (l *LineTag) Y2(value string) *LineTag {
 	l.AddAttribute("y2", value)
 	return l
 }
 
-//PathLength - 
+// PathLength -
 func (l *LineTag) PathLength(value string) *LineTag {
 	l.AddAttribute("pathlength", value)
 	return l

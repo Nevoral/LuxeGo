@@ -4,136 +4,136 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Animate - 
+// Animate -
 func Animate() *AnimateTag {
-	return &AnimateTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "animate", Attributes: &lx.Attributes{}, Children: nil}}
+	return &AnimateTag{ComponentSvgTag: &ComponentSvgTag{Name: "animate", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type AnimateTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Accumulate - 
+// Accumulate -
 func (a *AnimateTag) Accumulate(value string) *AnimateTag {
 	a.AddAttribute("accumulate", value)
 	return a
 }
 
-//Remove - 
+// Remove -
 func (a *AnimateTag) Remove(value string) *AnimateTag {
 	a.AddAttribute("remove", value)
 	return a
 }
 
-//Additive - 
+// Additive -
 func (a *AnimateTag) Additive(value string) *AnimateTag {
 	a.AddAttribute("additive", value)
 	return a
 }
 
-//AttributeName - 
+// AttributeName -
 func (a *AnimateTag) AttributeName(value string) *AnimateTag {
 	a.AddAttribute("attributename", value)
 	return a
 }
 
-//AttributeType - 
+// AttributeType -
 func (a *AnimateTag) AttributeType(value string) *AnimateTag {
 	a.AddAttribute("attributetype", value)
 	return a
 }
 
-//Begin - 
+// Begin -
 func (a *AnimateTag) Begin(value string) *AnimateTag {
 	a.AddAttribute("begin", value)
 	return a
 }
 
-//By - 
+// By -
 func (a *AnimateTag) By(value string) *AnimateTag {
 	a.AddAttribute("by", value)
 	return a
 }
 
-//CalcMode - 
+// CalcMode -
 func (a *AnimateTag) CalcMode(value string) *AnimateTag {
 	a.AddAttribute("calcmode", value)
 	return a
 }
 
-//Dur - 
+// Dur -
 func (a *AnimateTag) Dur(value string) *AnimateTag {
 	a.AddAttribute("dur", value)
 	return a
 }
 
-//End - 
+// End -
 func (a *AnimateTag) End(value string) *AnimateTag {
 	a.AddAttribute("end", value)
 	return a
 }
 
-//Fill - 
+// Fill -
 func (a *AnimateTag) Fill(value string) *AnimateTag {
 	a.AddAttribute("fill", value)
 	return a
 }
 
-//From - 
+// From -
 func (a *AnimateTag) From(value string) *AnimateTag {
 	a.AddAttribute("from", value)
 	return a
 }
 
-//KeySplines - 
+// KeySplines -
 func (a *AnimateTag) KeySplines(value string) *AnimateTag {
 	a.AddAttribute("keysplines", value)
 	return a
 }
 
-//KeyTimes - 
+// KeyTimes -
 func (a *AnimateTag) KeyTimes(value string) *AnimateTag {
 	a.AddAttribute("keytimes", value)
 	return a
 }
 
-//Max - 
+// Max -
 func (a *AnimateTag) Max(value string) *AnimateTag {
 	a.AddAttribute("max", value)
 	return a
 }
 
-//Min - 
+// Min -
 func (a *AnimateTag) Min(value string) *AnimateTag {
 	a.AddAttribute("min", value)
 	return a
 }
 
-//RepeatCount - 
+// RepeatCount -
 func (a *AnimateTag) RepeatCount(value string) *AnimateTag {
 	a.AddAttribute("repeatcount", value)
 	return a
 }
 
-//RepeatDur - 
+// RepeatDur -
 func (a *AnimateTag) RepeatDur(value string) *AnimateTag {
 	a.AddAttribute("repeatdur", value)
 	return a
 }
 
-//Restart - 
+// Restart -
 func (a *AnimateTag) Restart(value string) *AnimateTag {
 	a.AddAttribute("restart", value)
 	return a
 }
 
-//To - 
+// To -
 func (a *AnimateTag) To(value string) *AnimateTag {
 	a.AddAttribute("to", value)
 	return a
 }
 
-//Values - 
+// Values -
 func (a *AnimateTag) Values(value string) *AnimateTag {
 	a.AddAttribute("values", value)
 	return a

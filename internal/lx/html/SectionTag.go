@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Section - 
+// Section -
 func Section(tags ...lx.Content) *SectionTag {
 	return &SectionTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "section", Attributes: &lx.Attributes{}, Children: &tags}}
 }

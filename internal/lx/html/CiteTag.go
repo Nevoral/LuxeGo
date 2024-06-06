@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Cite - 
+// Cite -
 func Cite(tags ...lx.Content) *CiteTag {
 	return &CiteTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "cite", Attributes: &lx.Attributes{}, Children: &tags}}
 }

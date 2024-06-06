@@ -4,52 +4,52 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Tspan - 
+// Tspan -
 func Tspan() *TspanTag {
-	return &TspanTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "tspan", Attributes: &lx.Attributes{}, Children: nil}}
+	return &TspanTag{ComponentSvgTag: &ComponentSvgTag{Name: "tspan", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type TspanTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//X - 
+// X -
 func (t *TspanTag) X(value string) *TspanTag {
 	t.AddAttribute("x", value)
 	return t
 }
 
-//Y - 
+// Y -
 func (t *TspanTag) Y(value string) *TspanTag {
 	t.AddAttribute("y", value)
 	return t
 }
 
-//Dx - 
+// Dx -
 func (t *TspanTag) Dx(value string) *TspanTag {
 	t.AddAttribute("dx", value)
 	return t
 }
 
-//Dy - 
+// Dy -
 func (t *TspanTag) Dy(value string) *TspanTag {
 	t.AddAttribute("dy", value)
 	return t
 }
 
-//Rotate - 
+// Rotate -
 func (t *TspanTag) Rotate(value string) *TspanTag {
 	t.AddAttribute("rotate", value)
 	return t
 }
 
-//TextLength - 
+// TextLength -
 func (t *TspanTag) TextLength(value string) *TspanTag {
 	t.AddAttribute("textlength", value)
 	return t
 }
 
-//LengthAdjust - 
+// LengthAdjust -
 func (t *TspanTag) LengthAdjust(value string) *TspanTag {
 	t.AddAttribute("lengthadjust", value)
 	return t

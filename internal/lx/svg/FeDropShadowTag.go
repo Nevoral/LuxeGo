@@ -4,28 +4,28 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//FeDropShadow - 
+// FeDropShadow -
 func FeDropShadow() *FeDropShadowTag {
-	return &FeDropShadowTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "fedropshadow", Attributes: &lx.Attributes{}, Children: nil}}
+	return &FeDropShadowTag{ComponentSvgTag: &ComponentSvgTag{Name: "fedropshadow", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type FeDropShadowTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Dx - 
+// Dx -
 func (f *FeDropShadowTag) Dx(value string) *FeDropShadowTag {
 	f.AddAttribute("dx", value)
 	return f
 }
 
-//Dy - 
+// Dy -
 func (f *FeDropShadowTag) Dy(value string) *FeDropShadowTag {
 	f.AddAttribute("dy", value)
 	return f
 }
 
-//StdDeviation - 
+// StdDeviation -
 func (f *FeDropShadowTag) StdDeviation(value string) *FeDropShadowTag {
 	f.AddAttribute("stddeviation", value)
 	return f

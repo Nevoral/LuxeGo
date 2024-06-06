@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Strong - 
+// Strong -
 func Strong(tags ...lx.Content) *StrongTag {
 	return &StrongTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "strong", Attributes: &lx.Attributes{}, Children: &tags}}
 }

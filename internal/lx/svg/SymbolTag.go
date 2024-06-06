@@ -4,34 +4,34 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Symbol - 
+// Symbol -
 func Symbol(tags ...lx.Content) *SymbolTag {
-	return &SymbolTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "symbol", Attributes: &lx.Attributes{}, Children: &tags}}
+	return &SymbolTag{ComponentSvgTag: &ComponentSvgTag{Name: "symbol", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type SymbolTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//ViewBox - 
+// ViewBox -
 func (s *SymbolTag) ViewBox(value string) *SymbolTag {
 	s.AddAttribute("viewbox", value)
 	return s
 }
 
-//PreserveAspectRatio - 
+// PreserveAspectRatio -
 func (s *SymbolTag) PreserveAspectRatio(value string) *SymbolTag {
 	s.AddAttribute("preserveaspectratio", value)
 	return s
 }
 
-//RefX - 
+// RefX -
 func (s *SymbolTag) RefX(value string) *SymbolTag {
 	s.AddAttribute("refx", value)
 	return s
 }
 
-//RefY - 
+// RefY -
 func (s *SymbolTag) RefY(value string) *SymbolTag {
 	s.AddAttribute("refy", value)
 	return s

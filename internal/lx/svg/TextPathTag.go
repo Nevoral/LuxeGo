@@ -4,34 +4,34 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//TextPath - 
+// TextPath -
 func TextPath() *TextPathTag {
-	return &TextPathTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "textpath", Attributes: &lx.Attributes{}, Children: nil}}
+	return &TextPathTag{ComponentSvgTag: &ComponentSvgTag{Name: "textpath", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type TextPathTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Href - 
+// Href -
 func (t *TextPathTag) Href(value string) *TextPathTag {
 	t.AddAttribute("href", value)
 	return t
 }
 
-//StartOffset - 
+// StartOffset -
 func (t *TextPathTag) StartOffset(value string) *TextPathTag {
 	t.AddAttribute("startoffset", value)
 	return t
 }
 
-//Method - 
+// Method -
 func (t *TextPathTag) Method(value string) *TextPathTag {
 	t.AddAttribute("method", value)
 	return t
 }
 
-//Spacing - 
+// Spacing -
 func (t *TextPathTag) Spacing(value string) *TextPathTag {
 	t.AddAttribute("spacing", value)
 	return t

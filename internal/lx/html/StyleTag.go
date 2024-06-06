@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Style - 
+// Style -
 func Style(tags ...lx.Content) *StyleTag {
 	return &StyleTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "style", Attributes: &lx.Attributes{}, Children: &tags}}
 }
@@ -13,19 +13,19 @@ type StyleTag struct {
 	*ComponentHtmlTag
 }
 
-//Blocking - 
+// Blocking -
 func (s *StyleTag) Blocking(value string) *StyleTag {
 	s.AddAttribute("blocking", value)
 	return s
 }
 
-//Media - 
+// Media -
 func (s *StyleTag) Media(value string) *StyleTag {
 	s.AddAttribute("media", value)
 	return s
 }
 
-//Nonce - 
+// Nonce -
 func (s *StyleTag) Nonce(value string) *StyleTag {
 	s.AddAttribute("nonce", value)
 	return s

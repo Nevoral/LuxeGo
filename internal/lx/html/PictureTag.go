@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Picture - 
+// Picture -
 func Picture(tags ...lx.Content) *PictureTag {
 	return &PictureTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "picture", Attributes: &lx.Attributes{}, Children: &tags}}
 }

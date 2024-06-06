@@ -4,22 +4,22 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Path - 
+// Path -
 func Path() *PathTag {
-	return &PathTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "path", Attributes: &lx.Attributes{}, Children: nil}}
+	return &PathTag{ComponentSvgTag: &ComponentSvgTag{Name: "path", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type PathTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//D - 
+// D -
 func (p *PathTag) D(value string) *PathTag {
 	p.AddAttribute("d", value)
 	return p
 }
 
-//PathLength - 
+// PathLength -
 func (p *PathTag) PathLength(value string) *PathTag {
 	p.AddAttribute("pathlength", value)
 	return p

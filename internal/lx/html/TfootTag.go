@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Tfoot - 
+// Tfoot -
 func Tfoot(tags ...lx.Content) *TfootTag {
 	return &TfootTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "tfoot", Attributes: &lx.Attributes{}, Children: &tags}}
 }

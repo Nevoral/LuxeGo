@@ -4,52 +4,52 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//FeFuncG - 
+// FeFuncG -
 func FeFuncG() *FeFuncGTag {
-	return &FeFuncGTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "fefuncg", Attributes: &lx.Attributes{}, Children: nil}}
+	return &FeFuncGTag{ComponentSvgTag: &ComponentSvgTag{Name: "fefuncg", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type FeFuncGTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Type - 
+// Type -
 func (f *FeFuncGTag) Type(value string) *FeFuncGTag {
 	f.AddAttribute("type", value)
 	return f
 }
 
-//TableValues - 
+// TableValues -
 func (f *FeFuncGTag) TableValues(value string) *FeFuncGTag {
 	f.AddAttribute("tablevalues", value)
 	return f
 }
 
-//Slope - 
+// Slope -
 func (f *FeFuncGTag) Slope(value string) *FeFuncGTag {
 	f.AddAttribute("slope", value)
 	return f
 }
 
-//Intercept - 
+// Intercept -
 func (f *FeFuncGTag) Intercept(value string) *FeFuncGTag {
 	f.AddAttribute("intercept", value)
 	return f
 }
 
-//Amplitude - 
+// Amplitude -
 func (f *FeFuncGTag) Amplitude(value string) *FeFuncGTag {
 	f.AddAttribute("amplitude", value)
 	return f
 }
 
-//Exponent - 
+// Exponent -
 func (f *FeFuncGTag) Exponent(value string) *FeFuncGTag {
 	f.AddAttribute("exponent", value)
 	return f
 }
 
-//Offset - 
+// Offset -
 func (f *FeFuncGTag) Offset(value string) *FeFuncGTag {
 	f.AddAttribute("offset", value)
 	return f

@@ -4,16 +4,16 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//FeTile - 
+// FeTile -
 func FeTile() *FeTileTag {
-	return &FeTileTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "fetile", Attributes: &lx.Attributes{}, Children: nil}}
+	return &FeTileTag{ComponentSvgTag: &ComponentSvgTag{Name: "fetile", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type FeTileTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//In - 
+// In -
 func (f *FeTileTag) In(value string) *FeTileTag {
 	f.AddAttribute("in", value)
 	return f

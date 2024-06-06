@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Meter - 
+// Meter -
 func Meter(tags ...lx.Content) *MeterTag {
 	return &MeterTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "meter", Attributes: &lx.Attributes{}, Children: &tags}}
 }
@@ -13,43 +13,43 @@ type MeterTag struct {
 	*ComponentHtmlTag
 }
 
-//Value - Specifies the value of an <input> element.
+// Value - Specifies the value of an <input> element.
 func (m *MeterTag) Value(value string) *MeterTag {
 	m.AddAttribute("value", value)
 	return m
 }
 
-//Min - 
+// Min -
 func (m *MeterTag) Min(value string) *MeterTag {
 	m.AddAttribute("min", value)
 	return m
 }
 
-//Max - 
+// Max -
 func (m *MeterTag) Max(value string) *MeterTag {
 	m.AddAttribute("max", value)
 	return m
 }
 
-//Low - 
+// Low -
 func (m *MeterTag) Low(value string) *MeterTag {
 	m.AddAttribute("low", value)
 	return m
 }
 
-//High - 
+// High -
 func (m *MeterTag) High(value string) *MeterTag {
 	m.AddAttribute("high", value)
 	return m
 }
 
-//Optimum - 
+// Optimum -
 func (m *MeterTag) Optimum(value string) *MeterTag {
 	m.AddAttribute("optimum", value)
 	return m
 }
 
-//Form - 
+// Form -
 func (m *MeterTag) Form(value string) *MeterTag {
 	m.AddAttribute("form", value)
 	return m

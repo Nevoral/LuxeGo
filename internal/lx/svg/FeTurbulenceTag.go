@@ -4,40 +4,40 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//FeTurbulence - 
+// FeTurbulence -
 func FeTurbulence() *FeTurbulenceTag {
-	return &FeTurbulenceTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "feturbulence", Attributes: &lx.Attributes{}, Children: nil}}
+	return &FeTurbulenceTag{ComponentSvgTag: &ComponentSvgTag{Name: "feturbulence", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type FeTurbulenceTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//BaseFrequency - 
+// BaseFrequency -
 func (f *FeTurbulenceTag) BaseFrequency(value string) *FeTurbulenceTag {
 	f.AddAttribute("basefrequency", value)
 	return f
 }
 
-//NumOctaves - 
+// NumOctaves -
 func (f *FeTurbulenceTag) NumOctaves(value string) *FeTurbulenceTag {
 	f.AddAttribute("numoctaves", value)
 	return f
 }
 
-//Seed - 
+// Seed -
 func (f *FeTurbulenceTag) Seed(value string) *FeTurbulenceTag {
 	f.AddAttribute("seed", value)
 	return f
 }
 
-//StitchTiles - 
+// StitchTiles -
 func (f *FeTurbulenceTag) StitchTiles(value string) *FeTurbulenceTag {
 	f.AddAttribute("stitchtiles", value)
 	return f
 }
 
-//Type - 
+// Type -
 func (f *FeTurbulenceTag) Type(value string) *FeTurbulenceTag {
 	f.AddAttribute("type", value)
 	return f

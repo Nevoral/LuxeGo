@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Output - 
+// Output -
 func Output(tags ...lx.Content) *OutputTag {
 	return &OutputTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "output", Attributes: &lx.Attributes{}, Children: &tags}}
 }
@@ -13,19 +13,19 @@ type OutputTag struct {
 	*ComponentHtmlTag
 }
 
-//For - 
+// For -
 func (o *OutputTag) For(value string) *OutputTag {
 	o.AddAttribute("for", value)
 	return o
 }
 
-//Form - 
+// Form -
 func (o *OutputTag) Form(value string) *OutputTag {
 	o.AddAttribute("form", value)
 	return o
 }
 
-//Name - 
+// Name -
 func (o *OutputTag) Name(value string) *OutputTag {
 	o.AddAttribute("name", value)
 	return o

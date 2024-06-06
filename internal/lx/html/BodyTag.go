@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Body - 
+// Body -
 func Body(tags ...lx.Content) *BodyTag {
 	return &BodyTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "body", Attributes: &lx.Attributes{}, Children: &tags}}
 }
@@ -13,61 +13,61 @@ type BodyTag struct {
 	*ComponentHtmlTag
 }
 
-//Alink - Sets the color of an active link (deprecated in HTML5).
+// Alink - Sets the color of an active link (deprecated in HTML5).
 func (b *BodyTag) Alink(value string) *BodyTag {
 	b.AddAttribute("alink", value)
 	return b
 }
 
-//Background - 
+// Background -
 func (b *BodyTag) Background(value string) *BodyTag {
 	b.AddAttribute("background", value)
 	return b
 }
 
-//Bgcolor - 
+// Bgcolor -
 func (b *BodyTag) Bgcolor(value string) *BodyTag {
 	b.AddAttribute("bgcolor", value)
 	return b
 }
 
-//Bottommargin - 
+// Bottommargin -
 func (b *BodyTag) Bottommargin(value string) *BodyTag {
 	b.AddAttribute("bottommargin", value)
 	return b
 }
 
-//Leftmargin - 
+// Leftmargin -
 func (b *BodyTag) Leftmargin(value string) *BodyTag {
 	b.AddAttribute("leftmargin", value)
 	return b
 }
 
-//Link - 
+// Link -
 func (b *BodyTag) Link(value string) *BodyTag {
 	b.AddAttribute("link", value)
 	return b
 }
 
-//Rightmargin - 
+// Rightmargin -
 func (b *BodyTag) Rightmargin(value string) *BodyTag {
 	b.AddAttribute("rightmargin", value)
 	return b
 }
 
-//Text - 
+// Text -
 func (b *BodyTag) Text(value string) *BodyTag {
 	b.AddAttribute("text", value)
 	return b
 }
 
-//Topmargin - 
+// Topmargin -
 func (b *BodyTag) Topmargin(value string) *BodyTag {
 	b.AddAttribute("topmargin", value)
 	return b
 }
 
-//Vlink - 
+// Vlink -
 func (b *BodyTag) Vlink(value string) *BodyTag {
 	b.AddAttribute("vlink", value)
 	return b

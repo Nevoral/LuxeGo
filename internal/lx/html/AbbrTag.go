@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Abbr - 
+// Abbr -
 func Abbr(tags ...lx.Content) *AbbrTag {
 	return &AbbrTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "abbr", Attributes: &lx.Attributes{}, Children: &tags}}
 }

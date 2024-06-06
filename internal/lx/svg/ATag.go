@@ -4,58 +4,58 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//A - 
+// A -
 func A(tags ...lx.Content) *ATag {
-	return &ATag{ComponentHtmlTag: &ComponentHtmlTag{Name: "a", Attributes: &lx.Attributes{}, Children: &tags}}
+	return &ATag{ComponentSvgTag: &ComponentSvgTag{Name: "a", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type ATag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Download - 
+// Download -
 func (a *ATag) Download(value string) *ATag {
 	a.AddAttribute("download", value)
 	return a
 }
 
-//Href - 
+// Href -
 func (a *ATag) Href(value string) *ATag {
 	a.AddAttribute("href", value)
 	return a
 }
 
-//Hreflang - 
+// Hreflang -
 func (a *ATag) Hreflang(value string) *ATag {
 	a.AddAttribute("hreflang", value)
 	return a
 }
 
-//Ping - 
+// Ping -
 func (a *ATag) Ping(value string) *ATag {
 	a.AddAttribute("ping", value)
 	return a
 }
 
-//Referrerpolicy - 
+// Referrerpolicy -
 func (a *ATag) Referrerpolicy(value string) *ATag {
 	a.AddAttribute("referrerpolicy", value)
 	return a
 }
 
-//Rel - 
+// Rel -
 func (a *ATag) Rel(value string) *ATag {
 	a.AddAttribute("rel", value)
 	return a
 }
 
-//Target - 
+// Target -
 func (a *ATag) Target(value string) *ATag {
 	a.AddAttribute("target", value)
 	return a
 }
 
-//Type - 
+// Type -
 func (a *ATag) Type(value string) *ATag {
 	a.AddAttribute("type", value)
 	return a

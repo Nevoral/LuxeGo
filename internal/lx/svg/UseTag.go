@@ -4,40 +4,40 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Use - 
+// Use -
 func Use() *UseTag {
-	return &UseTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "use", Attributes: &lx.Attributes{}, Children: nil}}
+	return &UseTag{ComponentSvgTag: &ComponentSvgTag{Name: "use", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type UseTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Href - 
+// Href -
 func (u *UseTag) Href(value string) *UseTag {
 	u.AddAttribute("href", value)
 	return u
 }
 
-//X - 
+// X -
 func (u *UseTag) X(value string) *UseTag {
 	u.AddAttribute("x", value)
 	return u
 }
 
-//Y - 
+// Y -
 func (u *UseTag) Y(value string) *UseTag {
 	u.AddAttribute("y", value)
 	return u
 }
 
-//Width - 
+// Width -
 func (u *UseTag) Width(value string) *UseTag {
 	u.AddAttribute("width", value)
 	return u
 }
 
-//Height - 
+// Height -
 func (u *UseTag) Height(value string) *UseTag {
 	u.AddAttribute("height", value)
 	return u

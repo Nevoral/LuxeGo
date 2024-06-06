@@ -4,28 +4,28 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//FeGaussianBlur - 
+// FeGaussianBlur -
 func FeGaussianBlur() *FeGaussianBlurTag {
-	return &FeGaussianBlurTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "fegaussianblur", Attributes: &lx.Attributes{}, Children: nil}}
+	return &FeGaussianBlurTag{ComponentSvgTag: &ComponentSvgTag{Name: "fegaussianblur", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type FeGaussianBlurTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//In - 
+// In -
 func (f *FeGaussianBlurTag) In(value string) *FeGaussianBlurTag {
 	f.AddAttribute("in", value)
 	return f
 }
 
-//StdDeviation - 
+// StdDeviation -
 func (f *FeGaussianBlurTag) StdDeviation(value string) *FeGaussianBlurTag {
 	f.AddAttribute("stddeviation", value)
 	return f
 }
 
-//EdgeMode - 
+// EdgeMode -
 func (f *FeGaussianBlurTag) EdgeMode(value string) *FeGaussianBlurTag {
 	f.AddAttribute("edgemode", value)
 	return f

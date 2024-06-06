@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Samp - 
+// Samp -
 func Samp(tags ...lx.Content) *SampTag {
 	return &SampTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "samp", Attributes: &lx.Attributes{}, Children: &tags}}
 }

@@ -2,5 +2,5 @@ package lx
 
 type Content interface {
 	AddAttribute(name, value string)
-	Render() string
+	Render(level int) string
 }

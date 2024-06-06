@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Template - 
+// Template -
 func Template(tags ...lx.Content) *TemplateTag {
 	return &TemplateTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "template", Attributes: &lx.Attributes{}, Children: &tags}}
 }

@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Legend - 
+// Legend -
 func Legend(tags ...lx.Content) *LegendTag {
 	return &LegendTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "legend", Attributes: &lx.Attributes{}, Children: &tags}}
 }

@@ -4,22 +4,22 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//View - 
+// View -
 func View(tags ...lx.Content) *ViewTag {
-	return &ViewTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "view", Attributes: &lx.Attributes{}, Children: &tags}}
+	return &ViewTag{ComponentSvgTag: &ComponentSvgTag{Name: "view", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type ViewTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//ViewBox - 
+// ViewBox -
 func (v *ViewTag) ViewBox(value string) *ViewTag {
 	v.AddAttribute("viewbox", value)
 	return v
 }
 
-//PreserveAspectRatio - 
+// PreserveAspectRatio -
 func (v *ViewTag) PreserveAspectRatio(value string) *ViewTag {
 	v.AddAttribute("preserveaspectratio", value)
 	return v

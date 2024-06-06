@@ -4,16 +4,16 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//FeComponentTransfer - 
+// FeComponentTransfer -
 func FeComponentTransfer() *FeComponentTransferTag {
-	return &FeComponentTransferTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "fecomponenttransfer", Attributes: &lx.Attributes{}, Children: nil}}
+	return &FeComponentTransferTag{ComponentSvgTag: &ComponentSvgTag{Name: "fecomponenttransfer", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type FeComponentTransferTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//In - 
+// In -
 func (f *FeComponentTransferTag) In(value string) *FeComponentTransferTag {
 	f.AddAttribute("in", value)
 	return f

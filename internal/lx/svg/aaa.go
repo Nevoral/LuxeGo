@@ -16,25 +16,26 @@ func (c *ComponentSvgTag) AddAttribute(name, value string) {
 	})
 }
 
-func (c *ComponentSvgTag) Render() string {
+func (c *ComponentSvgTag) Render(level int) string {
 	var attributes string
+	tab := strings.Repeat("\t", level)
 	if c.Attributes != nil {
 		attributes = c.Attributes.Render()
 	}
 
 	if c.Children == nil {
 		if c.Attributes != nil {
-			return fmt.Sprintf("<%s%s>", c.Name, attributes)
+			return fmt.Sprintf("%s<%s%s>", tab, c.Name, attributes)
 		}
 		if c.Name == "" {
-			return fmt.Sprintf("%s", c.Msg)
+			return fmt.Sprintf("%s%s", tab, c.Msg)
 		}
 		return fmt.Sprintf("<%s%s-->", c.Name, c.Msg)
 	}
 
 	var result strings.Builder
 	for _, val := range *c.Children {
-		result.WriteString(fmt.Sprintf("\n%s", val.Render()))
+		result.WriteString(fmt.Sprintf("\n%s", val.Render(level+1)))
 	}
-	return fmt.Sprintf("<%s%s>%s\n</%s>", c.Name, attributes, result.String(), c.Name)
+	return fmt.Sprintf("%s<%s%s>%s\n%s</%s>", tab, c.Name, attributes, result.String(), tab, c.Name)
 }

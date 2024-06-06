@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Footer - 
+// Footer -
 func Footer(tags ...lx.Content) *FooterTag {
 	return &FooterTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "footer", Attributes: &lx.Attributes{}, Children: &tags}}
 }

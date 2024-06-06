@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Span - 
+// Span -
 func Span(tags ...lx.Content) *SpanTag {
 	return &SpanTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "span", Attributes: &lx.Attributes{}, Children: &tags}}
 }

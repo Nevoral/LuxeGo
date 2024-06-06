@@ -11,23 +11,57 @@ import (
 
 func GenerateHtmlTags() {
 	page := `package html
-
+%s
+%s`
+	for key, val := range configuration.HtmlAtrTable {
+		imports := `
 import (
 	"LuxeGo/internal/lx"
 )
 
-%s`
-	for key, val := range configuration.HtmlAtrTable {
-		if key == "!DOCTYPE" || key == "!--" || key == "" {
-			continue
-		}
+`
 		content := ""
 		tagName := capitalizeFirst(key)
-		content += tmpl.TagCaller(tagName, "", slices.Contains(configuration.SelfClosingHtmlTag, key))
+		switch key {
+		case "!DOCTYPE":
+			tagName = tagName[1:]
+			content += fmt.Sprintf(`//%s - %s
+func %s() *%sTag {
+	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: &lx.Attributes{}, Children: nil}}
+}
+
+%s
+`, tagName, "", tagName, tagName, tagName, "Html", "Html", key, tmpl.TagStruct(tagName, "Html"))
+			break
+		case "!--":
+			tagName = "Comment"
+			imports = ""
+			content += fmt.Sprintf(`//%s - %s
+func %s(comment string) *%sTag {
+	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: nil, Msg: comment, Children: nil}}
+}
+
+%s
+`, tagName, "", tagName, tagName, tagName, "Html", "Html", key, tmpl.TagStruct(tagName, "Html"))
+			break
+		case "":
+			tagName = "FreeStr"
+			imports = ""
+			content += fmt.Sprintf(`//%s - %s
+func %s(msg string) *%sTag {
+	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: nil,  Msg: msg, Children: nil}}
+}
+
+%s
+`, tagName, "", tagName, tagName, tagName, "Html", "Html", "", tmpl.TagStruct(tagName, "Html"))
+			break
+		default:
+			content += tmpl.TagCaller(tagName, "", "Html", slices.Contains(configuration.SelfClosingHtmlTag, key))
+		}
 		for _, atr := range val {
 			content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SpecificAtrTable[atr], slices.Contains(configuration.BoolAtr, atr))
 		}
-		CreateFile(fmt.Sprintf("internal/lx/html/%sTag.go", tagName), fmt.Sprintf(page, content))
+		CreateFile(fmt.Sprintf("internal/lx/html/%sTag.go", tagName), fmt.Sprintf(page, imports, content))
 	}
 }
 
@@ -67,7 +101,7 @@ import (
 		}
 		content := ""
 		tagName := capitalizeFirst(key)
-		content += tmpl.TagCaller(tagName, "", slices.Contains(configuration.SvgSelfClosing, key))
+		content += tmpl.TagCaller(tagName, "", "Svg", slices.Contains(configuration.SvgSelfClosing, key))
 		for _, atr := range val {
 			content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SvgSoecificAtr[atr], slices.Contains(configuration.BoolSvgAtr, atr))
 		}

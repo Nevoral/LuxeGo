@@ -4,46 +4,46 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Image - 
+// Image -
 func Image() *ImageTag {
-	return &ImageTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "image", Attributes: &lx.Attributes{}, Children: nil}}
+	return &ImageTag{ComponentSvgTag: &ComponentSvgTag{Name: "image", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type ImageTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Href - 
+// Href -
 func (i *ImageTag) Href(value string) *ImageTag {
 	i.AddAttribute("href", value)
 	return i
 }
 
-//X - 
+// X -
 func (i *ImageTag) X(value string) *ImageTag {
 	i.AddAttribute("x", value)
 	return i
 }
 
-//Y - 
+// Y -
 func (i *ImageTag) Y(value string) *ImageTag {
 	i.AddAttribute("y", value)
 	return i
 }
 
-//Width - 
+// Width -
 func (i *ImageTag) Width(value string) *ImageTag {
 	i.AddAttribute("width", value)
 	return i
 }
 
-//Height - 
+// Height -
 func (i *ImageTag) Height(value string) *ImageTag {
 	i.AddAttribute("height", value)
 	return i
 }
 
-//PreserveAspectRatio - 
+// PreserveAspectRatio -
 func (i *ImageTag) PreserveAspectRatio(value string) *ImageTag {
 	i.AddAttribute("preserveaspectratio", value)
 	return i

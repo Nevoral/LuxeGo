@@ -4,40 +4,40 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Ellipse - 
+// Ellipse -
 func Ellipse() *EllipseTag {
-	return &EllipseTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "ellipse", Attributes: &lx.Attributes{}, Children: nil}}
+	return &EllipseTag{ComponentSvgTag: &ComponentSvgTag{Name: "ellipse", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type EllipseTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Cx - 
+// Cx -
 func (e *EllipseTag) Cx(value string) *EllipseTag {
 	e.AddAttribute("cx", value)
 	return e
 }
 
-//Cy - 
+// Cy -
 func (e *EllipseTag) Cy(value string) *EllipseTag {
 	e.AddAttribute("cy", value)
 	return e
 }
 
-//Rx - 
+// Rx -
 func (e *EllipseTag) Rx(value string) *EllipseTag {
 	e.AddAttribute("rx", value)
 	return e
 }
 
-//Ry - 
+// Ry -
 func (e *EllipseTag) Ry(value string) *EllipseTag {
 	e.AddAttribute("ry", value)
 	return e
 }
 
-//PathLength - 
+// PathLength -
 func (e *EllipseTag) PathLength(value string) *EllipseTag {
 	e.AddAttribute("pathlength", value)
 	return e

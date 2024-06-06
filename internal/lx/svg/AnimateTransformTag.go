@@ -4,136 +4,136 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//AnimateTransform - 
+// AnimateTransform -
 func AnimateTransform() *AnimateTransformTag {
-	return &AnimateTransformTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "animatetransform", Attributes: &lx.Attributes{}, Children: nil}}
+	return &AnimateTransformTag{ComponentSvgTag: &ComponentSvgTag{Name: "animatetransform", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type AnimateTransformTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Accumulate - 
+// Accumulate -
 func (a *AnimateTransformTag) Accumulate(value string) *AnimateTransformTag {
 	a.AddAttribute("accumulate", value)
 	return a
 }
 
-//Additive - 
+// Additive -
 func (a *AnimateTransformTag) Additive(value string) *AnimateTransformTag {
 	a.AddAttribute("additive", value)
 	return a
 }
 
-//AttributeName - 
+// AttributeName -
 func (a *AnimateTransformTag) AttributeName(value string) *AnimateTransformTag {
 	a.AddAttribute("attributename", value)
 	return a
 }
 
-//AttributeType - 
+// AttributeType -
 func (a *AnimateTransformTag) AttributeType(value string) *AnimateTransformTag {
 	a.AddAttribute("attributetype", value)
 	return a
 }
 
-//Begin - 
+// Begin -
 func (a *AnimateTransformTag) Begin(value string) *AnimateTransformTag {
 	a.AddAttribute("begin", value)
 	return a
 }
 
-//By - 
+// By -
 func (a *AnimateTransformTag) By(value string) *AnimateTransformTag {
 	a.AddAttribute("by", value)
 	return a
 }
 
-//CalcMode - 
+// CalcMode -
 func (a *AnimateTransformTag) CalcMode(value string) *AnimateTransformTag {
 	a.AddAttribute("calcmode", value)
 	return a
 }
 
-//Dur - 
+// Dur -
 func (a *AnimateTransformTag) Dur(value string) *AnimateTransformTag {
 	a.AddAttribute("dur", value)
 	return a
 }
 
-//End - 
+// End -
 func (a *AnimateTransformTag) End(value string) *AnimateTransformTag {
 	a.AddAttribute("end", value)
 	return a
 }
 
-//Fill - 
+// Fill -
 func (a *AnimateTransformTag) Fill(value string) *AnimateTransformTag {
 	a.AddAttribute("fill", value)
 	return a
 }
 
-//From - 
+// From -
 func (a *AnimateTransformTag) From(value string) *AnimateTransformTag {
 	a.AddAttribute("from", value)
 	return a
 }
 
-//KeySplines - 
+// KeySplines -
 func (a *AnimateTransformTag) KeySplines(value string) *AnimateTransformTag {
 	a.AddAttribute("keysplines", value)
 	return a
 }
 
-//KeyTimes - 
+// KeyTimes -
 func (a *AnimateTransformTag) KeyTimes(value string) *AnimateTransformTag {
 	a.AddAttribute("keytimes", value)
 	return a
 }
 
-//Max - 
+// Max -
 func (a *AnimateTransformTag) Max(value string) *AnimateTransformTag {
 	a.AddAttribute("max", value)
 	return a
 }
 
-//Min - 
+// Min -
 func (a *AnimateTransformTag) Min(value string) *AnimateTransformTag {
 	a.AddAttribute("min", value)
 	return a
 }
 
-//RepeatCount - 
+// RepeatCount -
 func (a *AnimateTransformTag) RepeatCount(value string) *AnimateTransformTag {
 	a.AddAttribute("repeatcount", value)
 	return a
 }
 
-//RepeatDur - 
+// RepeatDur -
 func (a *AnimateTransformTag) RepeatDur(value string) *AnimateTransformTag {
 	a.AddAttribute("repeatdur", value)
 	return a
 }
 
-//Restart - 
+// Restart -
 func (a *AnimateTransformTag) Restart(value string) *AnimateTransformTag {
 	a.AddAttribute("restart", value)
 	return a
 }
 
-//To - 
+// To -
 func (a *AnimateTransformTag) To(value string) *AnimateTransformTag {
 	a.AddAttribute("to", value)
 	return a
 }
 
-//Type - 
+// Type -
 func (a *AnimateTransformTag) Type(value string) *AnimateTransformTag {
 	a.AddAttribute("type", value)
 	return a
 }
 
-//Values - 
+// Values -
 func (a *AnimateTransformTag) Values(value string) *AnimateTransformTag {
 	a.AddAttribute("values", value)
 	return a

@@ -4,64 +4,64 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Pattern - 
+// Pattern -
 func Pattern(tags ...lx.Content) *PatternTag {
-	return &PatternTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "pattern", Attributes: &lx.Attributes{}, Children: &tags}}
+	return &PatternTag{ComponentSvgTag: &ComponentSvgTag{Name: "pattern", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type PatternTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Height - 
+// Height -
 func (p *PatternTag) Height(value string) *PatternTag {
 	p.AddAttribute("height", value)
 	return p
 }
 
-//PatternContentUnits - 
+// PatternContentUnits -
 func (p *PatternTag) PatternContentUnits(value string) *PatternTag {
 	p.AddAttribute("patterncontentunits", value)
 	return p
 }
 
-//PatternTransform - 
+// PatternTransform -
 func (p *PatternTag) PatternTransform(value string) *PatternTag {
 	p.AddAttribute("patterntransform", value)
 	return p
 }
 
-//PatternUnits - 
+// PatternUnits -
 func (p *PatternTag) PatternUnits(value string) *PatternTag {
 	p.AddAttribute("patternunits", value)
 	return p
 }
 
-//PreserveAspectRatio - 
+// PreserveAspectRatio -
 func (p *PatternTag) PreserveAspectRatio(value string) *PatternTag {
 	p.AddAttribute("preserveaspectratio", value)
 	return p
 }
 
-//ViewBox - 
+// ViewBox -
 func (p *PatternTag) ViewBox(value string) *PatternTag {
 	p.AddAttribute("viewbox", value)
 	return p
 }
 
-//Width - 
+// Width -
 func (p *PatternTag) Width(value string) *PatternTag {
 	p.AddAttribute("width", value)
 	return p
 }
 
-//X - 
+// X -
 func (p *PatternTag) X(value string) *PatternTag {
 	p.AddAttribute("x", value)
 	return p
 }
 
-//Y - 
+// Y -
 func (p *PatternTag) Y(value string) *PatternTag {
 	p.AddAttribute("y", value)
 	return p

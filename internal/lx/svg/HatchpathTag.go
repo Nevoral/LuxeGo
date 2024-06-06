@@ -4,34 +4,34 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Hatchpath - 
+// Hatchpath -
 func Hatchpath(tags ...lx.Content) *HatchpathTag {
-	return &HatchpathTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "hatchpath", Attributes: &lx.Attributes{}, Children: &tags}}
+	return &HatchpathTag{ComponentSvgTag: &ComponentSvgTag{Name: "hatchpath", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type HatchpathTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//D - 
+// D -
 func (h *HatchpathTag) D(value string) *HatchpathTag {
 	h.AddAttribute("d", value)
 	return h
 }
 
-//Offset - 
+// Offset -
 func (h *HatchpathTag) Offset(value string) *HatchpathTag {
 	h.AddAttribute("offset", value)
 	return h
 }
 
-//StrokeWidth - 
+// StrokeWidth -
 func (h *HatchpathTag) StrokeWidth(value string) *HatchpathTag {
 	h.AddAttribute("strokewidth", value)
 	return h
 }
 
-//PathLength - 
+// PathLength -
 func (h *HatchpathTag) PathLength(value string) *HatchpathTag {
 	h.AddAttribute("pathlength", value)
 	return h

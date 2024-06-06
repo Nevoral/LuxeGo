@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Fieldset - 
+// Fieldset -
 func Fieldset(tags ...lx.Content) *FieldsetTag {
 	return &FieldsetTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "fieldset", Attributes: &lx.Attributes{}, Children: &tags}}
 }
@@ -13,19 +13,19 @@ type FieldsetTag struct {
 	*ComponentHtmlTag
 }
 
-//Disabled - Indicates that the user cannot interact with the element.
+// Disabled - Indicates that the user cannot interact with the element.
 func (f *FieldsetTag) Disabled() *FieldsetTag {
 	f.AddAttribute("disabled", "")
 	return f
 }
 
-//Form - 
+// Form -
 func (f *FieldsetTag) Form(value string) *FieldsetTag {
 	f.AddAttribute("form", value)
 	return f
 }
 
-//Name - 
+// Name -
 func (f *FieldsetTag) Name(value string) *FieldsetTag {
 	f.AddAttribute("name", value)
 	return f

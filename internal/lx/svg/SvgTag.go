@@ -4,70 +4,70 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Svg - 
+// Svg -
 func Svg(tags ...lx.Content) *SvgTag {
-	return &SvgTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "svg", Attributes: &lx.Attributes{}, Children: &tags}}
+	return &SvgTag{ComponentSvgTag: &ComponentSvgTag{Name: "svg", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type SvgTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//X - 
+// X -
 func (s *SvgTag) X(value string) *SvgTag {
 	s.AddAttribute("x", value)
 	return s
 }
 
-//Y - 
+// Y -
 func (s *SvgTag) Y(value string) *SvgTag {
 	s.AddAttribute("y", value)
 	return s
 }
 
-//Width - 
+// Width -
 func (s *SvgTag) Width(value string) *SvgTag {
 	s.AddAttribute("width", value)
 	return s
 }
 
-//Height - 
+// Height -
 func (s *SvgTag) Height(value string) *SvgTag {
 	s.AddAttribute("height", value)
 	return s
 }
 
-//ViewBox - 
+// ViewBox -
 func (s *SvgTag) ViewBox(value string) *SvgTag {
 	s.AddAttribute("viewbox", value)
 	return s
 }
 
-//PreserveAspectRatio - 
+// PreserveAspectRatio -
 func (s *SvgTag) PreserveAspectRatio(value string) *SvgTag {
 	s.AddAttribute("preserveaspectratio", value)
 	return s
 }
 
-//Version - 
+// Version -
 func (s *SvgTag) Version(value string) *SvgTag {
 	s.AddAttribute("version", value)
 	return s
 }
 
-//BaseProfile - 
+// BaseProfile -
 func (s *SvgTag) BaseProfile(value string) *SvgTag {
 	s.AddAttribute("baseprofile", value)
 	return s
 }
 
-//Xmlns - 
+// Xmlns -
 func (s *SvgTag) Xmlns(value string) *SvgTag {
 	s.AddAttribute("xmlns", value)
 	return s
 }
 
-//XmlnsXlink - 
+// XmlnsXlink -
 func (s *SvgTag) XmlnsXlink(value string) *SvgTag {
 	s.AddAttribute("xmlns:xlink", value)
 	return s

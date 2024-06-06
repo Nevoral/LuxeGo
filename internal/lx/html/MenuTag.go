@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Menu - 
+// Menu -
 func Menu(tags ...lx.Content) *MenuTag {
 	return &MenuTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "menu", Attributes: &lx.Attributes{}, Children: &tags}}
 }

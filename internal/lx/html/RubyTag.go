@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Ruby - 
+// Ruby -
 func Ruby(tags ...lx.Content) *RubyTag {
 	return &RubyTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "ruby", Attributes: &lx.Attributes{}, Children: &tags}}
 }

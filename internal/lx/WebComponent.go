@@ -22,7 +22,7 @@ func (w *WebComponent) AddAttribute(name, value string) {
 	})
 }
 
-func (w *WebComponent) Render() string {
+func (w *WebComponent) Render(level int) string {
 	var attributes string
 	if w.Attributes != nil {
 		attributes = w.Attributes.Render()
@@ -40,7 +40,7 @@ func (w *WebComponent) Render() string {
 
 	var result strings.Builder
 	for _, val := range *w.Children {
-		result.WriteString(fmt.Sprintf("\n%s", val.Render()))
+		result.WriteString(fmt.Sprintf("\n%s", val.Render(level+1)))
 	}
 	return fmt.Sprintf("<%s%s>%s\n</%s>", w.Name, attributes, result.String(), w.Name)
 }

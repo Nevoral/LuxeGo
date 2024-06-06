@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Dt - 
+// Dt -
 func Dt(tags ...lx.Content) *DtTag {
 	return &DtTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "dt", Attributes: &lx.Attributes{}, Children: &tags}}
 }

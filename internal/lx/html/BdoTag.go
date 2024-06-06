@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Bdo - 
+// Bdo -
 func Bdo(tags ...lx.Content) *BdoTag {
 	return &BdoTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "bdo", Attributes: &lx.Attributes{}, Children: &tags}}
 }

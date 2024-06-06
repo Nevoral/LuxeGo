@@ -4,46 +4,46 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Mask - 
+// Mask -
 func Mask(tags ...lx.Content) *MaskTag {
-	return &MaskTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "mask", Attributes: &lx.Attributes{}, Children: &tags}}
+	return &MaskTag{ComponentSvgTag: &ComponentSvgTag{Name: "mask", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type MaskTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Height - 
+// Height -
 func (m *MaskTag) Height(value string) *MaskTag {
 	m.AddAttribute("height", value)
 	return m
 }
 
-//MaskContentUnits - 
+// MaskContentUnits -
 func (m *MaskTag) MaskContentUnits(value string) *MaskTag {
 	m.AddAttribute("maskcontentunits", value)
 	return m
 }
 
-//MaskUnits - 
+// MaskUnits -
 func (m *MaskTag) MaskUnits(value string) *MaskTag {
 	m.AddAttribute("maskunits", value)
 	return m
 }
 
-//Width - 
+// Width -
 func (m *MaskTag) Width(value string) *MaskTag {
 	m.AddAttribute("width", value)
 	return m
 }
 
-//X - 
+// X -
 func (m *MaskTag) X(value string) *MaskTag {
 	m.AddAttribute("x", value)
 	return m
 }
 
-//Y - 
+// Y -
 func (m *MaskTag) Y(value string) *MaskTag {
 	m.AddAttribute("y", value)
 	return m

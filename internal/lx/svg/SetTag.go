@@ -4,70 +4,70 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Set - 
+// Set -
 func Set(tags ...lx.Content) *SetTag {
-	return &SetTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "set", Attributes: &lx.Attributes{}, Children: &tags}}
+	return &SetTag{ComponentSvgTag: &ComponentSvgTag{Name: "set", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type SetTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//To - 
+// To -
 func (s *SetTag) To(value string) *SetTag {
 	s.AddAttribute("to", value)
 	return s
 }
 
-//AttributeName - 
+// AttributeName -
 func (s *SetTag) AttributeName(value string) *SetTag {
 	s.AddAttribute("attributename", value)
 	return s
 }
 
-//AttributeType - 
+// AttributeType -
 func (s *SetTag) AttributeType(value string) *SetTag {
 	s.AddAttribute("attributetype", value)
 	return s
 }
 
-//Begin - 
+// Begin -
 func (s *SetTag) Begin(value string) *SetTag {
 	s.AddAttribute("begin", value)
 	return s
 }
 
-//Dur - 
+// Dur -
 func (s *SetTag) Dur(value string) *SetTag {
 	s.AddAttribute("dur", value)
 	return s
 }
 
-//End - 
+// End -
 func (s *SetTag) End(value string) *SetTag {
 	s.AddAttribute("end", value)
 	return s
 }
 
-//Fill - 
+// Fill -
 func (s *SetTag) Fill(value string) *SetTag {
 	s.AddAttribute("fill", value)
 	return s
 }
 
-//RepeatCount - 
+// RepeatCount -
 func (s *SetTag) RepeatCount(value string) *SetTag {
 	s.AddAttribute("repeatcount", value)
 	return s
 }
 
-//RepeatDur - 
+// RepeatDur -
 func (s *SetTag) RepeatDur(value string) *SetTag {
 	s.AddAttribute("repeatdur", value)
 	return s
 }
 
-//Restart - 
+// Restart -
 func (s *SetTag) Restart(value string) *SetTag {
 	s.AddAttribute("restart", value)
 	return s

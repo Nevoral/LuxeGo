@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Address - 
+// Address -
 func Address(tags ...lx.Content) *AddressTag {
 	return &AddressTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "address", Attributes: &lx.Attributes{}, Children: &tags}}
 }

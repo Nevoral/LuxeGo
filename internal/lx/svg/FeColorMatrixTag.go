@@ -4,28 +4,28 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//FeColorMatrix - 
+// FeColorMatrix -
 func FeColorMatrix() *FeColorMatrixTag {
-	return &FeColorMatrixTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "fecolormatrix", Attributes: &lx.Attributes{}, Children: nil}}
+	return &FeColorMatrixTag{ComponentSvgTag: &ComponentSvgTag{Name: "fecolormatrix", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type FeColorMatrixTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//In - 
+// In -
 func (f *FeColorMatrixTag) In(value string) *FeColorMatrixTag {
 	f.AddAttribute("in", value)
 	return f
 }
 
-//Type - 
+// Type -
 func (f *FeColorMatrixTag) Type(value string) *FeColorMatrixTag {
 	f.AddAttribute("type", value)
 	return f
 }
 
-//Values - 
+// Values -
 func (f *FeColorMatrixTag) Values(value string) *FeColorMatrixTag {
 	f.AddAttribute("values", value)
 	return f

@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Hgroup - 
+// Hgroup -
 func Hgroup(tags ...lx.Content) *HgroupTag {
 	return &HgroupTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "hgroup", Attributes: &lx.Attributes{}, Children: &tags}}
 }

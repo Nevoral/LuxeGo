@@ -4,23 +4,23 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//FeFlood - 
+// FeFlood -
 func FeFlood() *FeFloodTag {
-	return &FeFloodTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "feflood", Attributes: &lx.Attributes{}, Children: nil}}
+	return &FeFloodTag{ComponentSvgTag: &ComponentSvgTag{Name: "feflood", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type FeFloodTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Flood-color - 
-func (f *FeFloodTag) Flood-color(value string) *FeFloodTag {
+// FloodColor -
+func (f *FeFloodTag) FloodColor(value string) *FeFloodTag {
 	f.AddAttribute("flood-color", value)
 	return f
 }
 
-//Flood-opacity - 
-func (f *FeFloodTag) Flood-opacity(value string) *FeFloodTag {
+// FloodOpacity -
+func (f *FeFloodTag) FloodOpacity(value string) *FeFloodTag {
 	f.AddAttribute("flood-opacity", value)
 	return f
 }

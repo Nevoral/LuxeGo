@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Script - 
+// Script -
 func Script(tags ...lx.Content) *ScriptTag {
 	return &ScriptTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "script", Attributes: &lx.Attributes{}, Children: &tags}}
 }
@@ -13,67 +13,67 @@ type ScriptTag struct {
 	*ComponentHtmlTag
 }
 
-//Async - Indicates that the script should be executed asynchronously.
+// Async - Indicates that the script should be executed asynchronously.
 func (s *ScriptTag) Async() *ScriptTag {
 	s.AddAttribute("async", "")
 	return s
 }
 
-//Blocking - 
+// Blocking -
 func (s *ScriptTag) Blocking(value string) *ScriptTag {
 	s.AddAttribute("blocking", value)
 	return s
 }
 
-//Crossorigin - How to handle cross-origin requests for the element.
+// Crossorigin - How to handle cross-origin requests for the element.
 func (s *ScriptTag) Crossorigin(value string) *ScriptTag {
 	s.AddAttribute("crossorigin", value)
 	return s
 }
 
-//Defer - 
+// Defer -
 func (s *ScriptTag) Defer() *ScriptTag {
 	s.AddAttribute("defer", "")
 	return s
 }
 
-//Fetchpriority - 
+// Fetchpriority -
 func (s *ScriptTag) Fetchpriority(value string) *ScriptTag {
 	s.AddAttribute("fetchpriority", value)
 	return s
 }
 
-//Integrity - 
+// Integrity -
 func (s *ScriptTag) Integrity(value string) *ScriptTag {
 	s.AddAttribute("integrity", value)
 	return s
 }
 
-//Nomodule - 
+// Nomodule -
 func (s *ScriptTag) Nomodule(value string) *ScriptTag {
 	s.AddAttribute("nomodule", value)
 	return s
 }
 
-//Nonce - 
+// Nonce -
 func (s *ScriptTag) Nonce(value string) *ScriptTag {
 	s.AddAttribute("nonce", value)
 	return s
 }
 
-//Referrerpolicy - 
+// Referrerpolicy -
 func (s *ScriptTag) Referrerpolicy(value string) *ScriptTag {
 	s.AddAttribute("referrerpolicy", value)
 	return s
 }
 
-//Src - Specifies the URL of an image.
+// Src - Specifies the URL of an image.
 func (s *ScriptTag) Src(value string) *ScriptTag {
 	s.AddAttribute("src", value)
 	return s
 }
 
-//Type - Specifies the type of an <input> element.
+// Type - Specifies the type of an <input> element.
 func (s *ScriptTag) Type(value string) *ScriptTag {
 	s.AddAttribute("type", value)
 	return s

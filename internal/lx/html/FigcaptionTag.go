@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Figcaption - 
+// Figcaption -
 func Figcaption(tags ...lx.Content) *FigcaptionTag {
 	return &FigcaptionTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "figcaption", Attributes: &lx.Attributes{}, Children: &tags}}
 }

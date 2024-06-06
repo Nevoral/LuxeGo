@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Kbd - 
+// Kbd -
 func Kbd(tags ...lx.Content) *KbdTag {
 	return &KbdTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "kbd", Attributes: &lx.Attributes{}, Children: &tags}}
 }

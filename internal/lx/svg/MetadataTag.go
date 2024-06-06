@@ -4,11 +4,11 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Metadata - 
+// Metadata -
 func Metadata(tags ...lx.Content) *MetadataTag {
-	return &MetadataTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "metadata", Attributes: &lx.Attributes{}, Children: &tags}}
+	return &MetadataTag{ComponentSvgTag: &ComponentSvgTag{Name: "metadata", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type MetadataTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }

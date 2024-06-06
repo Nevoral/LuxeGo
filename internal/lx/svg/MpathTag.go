@@ -4,16 +4,16 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Mpath - 
+// Mpath -
 func Mpath(tags ...lx.Content) *MpathTag {
-	return &MpathTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "mpath", Attributes: &lx.Attributes{}, Children: &tags}}
+	return &MpathTag{ComponentSvgTag: &ComponentSvgTag{Name: "mpath", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type MpathTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Href - 
+// Href -
 func (m *MpathTag) Href(value string) *MpathTag {
 	m.AddAttribute("href", value)
 	return m

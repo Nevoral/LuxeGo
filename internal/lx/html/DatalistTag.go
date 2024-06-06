@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Datalist - 
+// Datalist -
 func Datalist(tags ...lx.Content) *DatalistTag {
 	return &DatalistTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "datalist", Attributes: &lx.Attributes{}, Children: &tags}}
 }

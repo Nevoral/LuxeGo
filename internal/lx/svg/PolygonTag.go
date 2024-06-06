@@ -4,22 +4,22 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Polygon - 
+// Polygon -
 func Polygon() *PolygonTag {
-	return &PolygonTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "polygon", Attributes: &lx.Attributes{}, Children: nil}}
+	return &PolygonTag{ComponentSvgTag: &ComponentSvgTag{Name: "polygon", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type PolygonTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//Points - 
+// Points -
 func (p *PolygonTag) Points(value string) *PolygonTag {
 	p.AddAttribute("points", value)
 	return p
 }
 
-//PathLength - 
+// PathLength -
 func (p *PolygonTag) PathLength(value string) *PolygonTag {
 	p.AddAttribute("pathlength", value)
 	return p

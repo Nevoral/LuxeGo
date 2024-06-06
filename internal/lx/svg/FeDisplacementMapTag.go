@@ -4,40 +4,40 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//FeDisplacementMap - 
+// FeDisplacementMap -
 func FeDisplacementMap() *FeDisplacementMapTag {
-	return &FeDisplacementMapTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "fedisplacementmap", Attributes: &lx.Attributes{}, Children: nil}}
+	return &FeDisplacementMapTag{ComponentSvgTag: &ComponentSvgTag{Name: "fedisplacementmap", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type FeDisplacementMapTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//In - 
+// In -
 func (f *FeDisplacementMapTag) In(value string) *FeDisplacementMapTag {
 	f.AddAttribute("in", value)
 	return f
 }
 
-//In2 - 
+// In2 -
 func (f *FeDisplacementMapTag) In2(value string) *FeDisplacementMapTag {
 	f.AddAttribute("in2", value)
 	return f
 }
 
-//Scale - 
+// Scale -
 func (f *FeDisplacementMapTag) Scale(value string) *FeDisplacementMapTag {
 	f.AddAttribute("scale", value)
 	return f
 }
 
-//XChannelSelector - 
+// XChannelSelector -
 func (f *FeDisplacementMapTag) XChannelSelector(value string) *FeDisplacementMapTag {
 	f.AddAttribute("xchannelselector", value)
 	return f
 }
 
-//YChannelSelector - 
+// YChannelSelector -
 func (f *FeDisplacementMapTag) YChannelSelector(value string) *FeDisplacementMapTag {
 	f.AddAttribute("ychannelselector", value)
 	return f

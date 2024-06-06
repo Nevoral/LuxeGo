@@ -4,28 +4,28 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//FeOffset - 
+// FeOffset -
 func FeOffset() *FeOffsetTag {
-	return &FeOffsetTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "feoffset", Attributes: &lx.Attributes{}, Children: nil}}
+	return &FeOffsetTag{ComponentSvgTag: &ComponentSvgTag{Name: "feoffset", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type FeOffsetTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//In - 
+// In -
 func (f *FeOffsetTag) In(value string) *FeOffsetTag {
 	f.AddAttribute("in", value)
 	return f
 }
 
-//Dx - 
+// Dx -
 func (f *FeOffsetTag) Dx(value string) *FeOffsetTag {
 	f.AddAttribute("dx", value)
 	return f
 }
 
-//Dy - 
+// Dy -
 func (f *FeOffsetTag) Dy(value string) *FeOffsetTag {
 	f.AddAttribute("dy", value)
 	return f

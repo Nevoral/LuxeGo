@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Svg - 
+// Svg -
 func Svg(tags ...lx.Content) *SvgTag {
 	return &SvgTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "svg", Attributes: &lx.Attributes{}, Children: &tags}}
 }

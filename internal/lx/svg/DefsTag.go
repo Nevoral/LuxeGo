@@ -4,11 +4,11 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Defs - 
+// Defs -
 func Defs(tags ...lx.Content) *DefsTag {
-	return &DefsTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "defs", Attributes: &lx.Attributes{}, Children: &tags}}
+	return &DefsTag{ComponentSvgTag: &ComponentSvgTag{Name: "defs", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type DefsTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }

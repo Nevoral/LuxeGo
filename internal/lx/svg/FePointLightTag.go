@@ -4,28 +4,28 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//FePointLight - 
+// FePointLight -
 func FePointLight() *FePointLightTag {
-	return &FePointLightTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "fepointlight", Attributes: &lx.Attributes{}, Children: nil}}
+	return &FePointLightTag{ComponentSvgTag: &ComponentSvgTag{Name: "fepointlight", Attributes: &lx.Attributes{}, Children: nil}}
 }
 
 type FePointLightTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
 
-//X - 
+// X -
 func (f *FePointLightTag) X(value string) *FePointLightTag {
 	f.AddAttribute("x", value)
 	return f
 }
 
-//Y - 
+// Y -
 func (f *FePointLightTag) Y(value string) *FePointLightTag {
 	f.AddAttribute("y", value)
 	return f
 }
 
-//Z - 
+// Z -
 func (f *FePointLightTag) Z(value string) *FePointLightTag {
 	f.AddAttribute("z", value)
 	return f

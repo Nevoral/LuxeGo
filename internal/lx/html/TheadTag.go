@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Thead - 
+// Thead -
 func Thead(tags ...lx.Content) *TheadTag {
 	return &TheadTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "thead", Attributes: &lx.Attributes{}, Children: &tags}}
 }

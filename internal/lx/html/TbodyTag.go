@@ -4,7 +4,7 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//Tbody - 
+// Tbody -
 func Tbody(tags ...lx.Content) *TbodyTag {
 	return &TbodyTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "tbody", Attributes: &lx.Attributes{}, Children: &tags}}
 }

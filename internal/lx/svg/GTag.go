@@ -4,11 +4,11 @@ import (
 	"LuxeGo/internal/lx"
 )
 
-//G - 
+// G -
 func G(tags ...lx.Content) *GTag {
-	return &GTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "g", Attributes: &lx.Attributes{}, Children: &tags}}
+	return &GTag{ComponentSvgTag: &ComponentSvgTag{Name: "g", Attributes: &lx.Attributes{}, Children: &tags}}
 }
 
 type GTag struct {
-	*ComponentHtmlTag
+	*ComponentSvgTag
 }
