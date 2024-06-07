@@ -1,12 +1,25 @@
 package html
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // Colgroup -
-func Colgroup(tags ...LuxeGo.Content) *ColgroupTag {
-	return &ColgroupTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "colgroup", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func Colgroup(tags ...interface{}) *ColgroupTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &ColgroupTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "colgroup", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type ColgroupTag struct {

@@ -1,12 +1,25 @@
 package html
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // Meter -
-func Meter(tags ...LuxeGo.Content) *MeterTag {
-	return &MeterTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "meter", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func Meter(tags ...interface{}) *MeterTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &MeterTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "meter", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type MeterTag struct {

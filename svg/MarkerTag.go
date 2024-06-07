@@ -1,12 +1,25 @@
 package svg
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // Marker -
-func Marker(tags ...LuxeGo.Content) *MarkerTag {
-	return &MarkerTag{ComponentSvgTag: &ComponentSvgTag{Name: "marker", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func Marker(tags ...interface{}) *MarkerTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &MarkerTag{ComponentSvgTag: &ComponentSvgTag{Name: "marker", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type MarkerTag struct {

@@ -15,15 +15,17 @@ func GenerateHtmlTag(key string) {
 %s`
 	imports := `
 import (
-	"github.com/Nevoral/LuxeGo"
+	"github.com/Nevoral/LuxeGo"%s
 )
 
 `
 	val := configuration.HtmlAtrTable[key]
 	content := ""
 	tagName := capitalizeFirst(key)
+	isSelfClosing := slices.Contains(configuration.SelfClosingHtmlTag, key)
 	switch key {
 	case "!DOCTYPE":
+		imports = fmt.Sprintf(imports, "")
 		tagName = "Doctype"
 		content += fmt.Sprintf(`//DOCTYPE - %s
 func DOCTYPE() *DoctypeTag {
@@ -32,33 +34,19 @@ func DOCTYPE() *DoctypeTag {
 
 %s
 `, "", tmpl.TagStruct("Doctype", "Html"))
-	case "!--":
-		tagName = "Comment"
-		imports = ""
-		content += fmt.Sprintf(`//Comment - %s
-func Comment(comment string) *CommentTag {
-	return &CommentTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "!--", Attributes: nil, Msg: comment, Children: nil}}
-}
-
-%s
-`, "", tmpl.TagStruct("Comment", "Html"))
-	case "":
-		tagName = "FreeStr"
-		imports = ""
-		content += fmt.Sprintf(`//FreeStr - %s
-func FreeStr(msg string) *FreeStrTag {
-	return &FreeStrTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "", Attributes: nil,  Msg: msg, Children: nil}}
-}
-
-%s
-`, "", tmpl.TagStruct("FreeStr", "Html"))
 	default:
-		content += tmpl.TagCaller(tagName, "", "Html", slices.Contains(configuration.SelfClosingHtmlTag, key))
+		if isSelfClosing {
+			imports = fmt.Sprintf(imports, "")
+		} else {
+			imports = fmt.Sprintf(imports, "\n\t\"fmt\"")
+		}
+		content += tmpl.TagCaller(tagName, "", "Html", isSelfClosing)
 	}
 	for _, atr := range val {
 		content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SpecificAtrTable[atr], slices.Contains(configuration.BoolAtr, atr))
 	}
 	CreateFile(fmt.Sprintf("html/%sTag.go", tagName), fmt.Sprintf(page, imports, content))
+	return
 }
 
 func GenerateHtmlTags() {
@@ -92,7 +80,7 @@ type ComponentHtmlTag struct {
 func (c *ComponentHtmlTag) Aria(name, value string) *ComponentHtmlTag {
 	var a string
 	if name == "" {
-		a = fmt.Sprintf("aria-%%s", name)
+		a = "aria"
 	} else {	
 		a = fmt.Sprintf("aria-%%s", name)
 	}
@@ -111,7 +99,7 @@ func (c *ComponentHtmlTag) Aria(name, value string) *ComponentHtmlTag {
 func (c *ComponentHtmlTag) Data(name, value string) *ComponentHtmlTag {
 	var a string
 	if name == "" {
-		a = fmt.Sprintf("data-%%s", name)
+		a = "data"
 	} else {	
 		a = fmt.Sprintf("data-%%s", name)
 	}
@@ -133,19 +121,24 @@ func GenerateSvgTag(key string) {
 	page := `package svg
 
 import (
-	"github.com/Nevoral/LuxeGo"
+	"github.com/Nevoral/LuxeGo"%s
 )
 
 %s`
 	val := configuration.SvgAtrTable[key]
 	content := ""
 	tagName := capitalizeFirst(key)
-	content += tmpl.TagCaller(tagName, "", "Svg", slices.Contains(configuration.SvgSelfClosing, key))
+	isSelfClosing := slices.Contains(configuration.SvgSelfClosing, key)
+	content += tmpl.TagCaller(tagName, "", "Svg", isSelfClosing)
 	for _, atr := range val {
 		content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SvgSoecificAtr[atr], slices.Contains(configuration.BoolSvgAtr, atr))
 	}
-	CreateFile(fmt.Sprintf("svg/%sTag.go", tagName), fmt.Sprintf(page, content))
-
+	if isSelfClosing {
+		CreateFile(fmt.Sprintf("svg/%sTag.go", tagName), fmt.Sprintf(page, "", content))
+		return
+	}
+	CreateFile(fmt.Sprintf("svg/%sTag.go", tagName), fmt.Sprintf(page, "\n\t\"fmt\"", content))
+	return
 }
 
 func GenerateSvgTags() {
@@ -179,7 +172,7 @@ type ComponentSvgTag struct {
 func (c *ComponentSvgTag) Aria(name, value string) *ComponentSvgTag {
 	var a string
 	if name == "" {
-		a = fmt.Sprintf("aria-%%s", name)
+		a = "aria"
 	} else {	
 		a = fmt.Sprintf("aria-%%s", name)
 	}
@@ -198,7 +191,7 @@ func (c *ComponentSvgTag) Aria(name, value string) *ComponentSvgTag {
 func (c *ComponentSvgTag) Data(name, value string) *ComponentSvgTag {
 	var a string
 	if name == "" {
-		a = fmt.Sprintf("data-%%s", name)
+		a = "data"
 	} else {	
 		a = fmt.Sprintf("data-%%s", name)
 	}

@@ -1,12 +1,25 @@
 package svg
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // Hatchpath -
-func Hatchpath(tags ...LuxeGo.Content) *HatchpathTag {
-	return &HatchpathTag{ComponentSvgTag: &ComponentSvgTag{Name: "hatchpath", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func Hatchpath(tags ...interface{}) *HatchpathTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &HatchpathTag{ComponentSvgTag: &ComponentSvgTag{Name: "hatchpath", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type HatchpathTag struct {

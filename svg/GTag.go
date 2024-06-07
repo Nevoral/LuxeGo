@@ -1,12 +1,25 @@
 package svg
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // G -
-func G(tags ...LuxeGo.Content) *GTag {
-	return &GTag{ComponentSvgTag: &ComponentSvgTag{Name: "g", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func G(tags ...interface{}) *GTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &GTag{ComponentSvgTag: &ComponentSvgTag{Name: "g", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type GTag struct {

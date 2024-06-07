@@ -20,9 +20,9 @@ func main() {
 }
 
 func DivByDiv(some string) LuxeGo.Content {
-	var table []LuxeGo.Content
+	var table []any
 	for i := 0; i < 2; i++ {
-		var row []LuxeGo.Content
+		var row []any
 		for j := 0; j < 2; j++ {
 			row = append(row, html.Div(html.FreeStr(fmt.Sprintf("i: %d, j: %d", i, j))))
 		}
@@ -45,15 +45,18 @@ func Teststructure() {
 		html.Html(
 			html.Head(),
 			html.Body(
+				html.Comment("nevim nějakydfakusdfhkasdf"),
 				html.A(
 					html.Svg(
 						svg.A(
 							svg.Animate(),
 						).Id("nevim"),
-					).Class("flex"),
+					).ViewBox("").Class("flex"),
 					html.Div(
+						"nevim",
+						"html.Div(),",
 						DivByDiv("nevim"),
-						html.Comment("nevim co za koment napsat"),
+						//html.Comment("nevim co za koment napsat"),
 					),
 				).Download("True").Id("nevim2").Class("flex flex-row"),
 			),

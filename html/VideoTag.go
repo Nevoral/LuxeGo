@@ -1,12 +1,25 @@
 package html
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // Video -
-func Video(tags ...LuxeGo.Content) *VideoTag {
-	return &VideoTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "video", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func Video(tags ...interface{}) *VideoTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &VideoTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "video", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type VideoTag struct {

@@ -1,12 +1,25 @@
 package html
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // Style -
-func Style(tags ...LuxeGo.Content) *StyleTag {
-	return &StyleTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "style", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func Style(tags ...interface{}) *StyleTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &StyleTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "style", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type StyleTag struct {

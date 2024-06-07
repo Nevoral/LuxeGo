@@ -1,12 +1,25 @@
 package html
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // Select -
-func Select(tags ...LuxeGo.Content) *SelectTag {
-	return &SelectTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "select", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func Select(tags ...interface{}) *SelectTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &SelectTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "select", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type SelectTag struct {

@@ -2,8 +2,6 @@ package configuration
 
 var HtmlAtrTable = map[string][]string{
 	"!DOCTYPE": {"html"},
-	"":         nil,
-	"!--":      nil,
 	"a":        {"download", "href", "hreflang", "ping", "referrerpolicy", "rel", "target", "type"},
 	"abbr":     {},
 	"address":  {},

@@ -1,12 +1,25 @@
 package svg
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // Mask -
-func Mask(tags ...LuxeGo.Content) *MaskTag {
-	return &MaskTag{ComponentSvgTag: &ComponentSvgTag{Name: "mask", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func Mask(tags ...interface{}) *MaskTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &MaskTag{ComponentSvgTag: &ComponentSvgTag{Name: "mask", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type MaskTag struct {

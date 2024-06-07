@@ -1,12 +1,25 @@
 package html
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // Canvas -
-func Canvas(tags ...LuxeGo.Content) *CanvasTag {
-	return &CanvasTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "canvas", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func Canvas(tags ...interface{}) *CanvasTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &CanvasTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "canvas", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type CanvasTag struct {

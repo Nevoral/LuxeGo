@@ -1,12 +1,25 @@
 package html
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // Del -
-func Del(tags ...LuxeGo.Content) *DelTag {
-	return &DelTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "del", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func Del(tags ...interface{}) *DelTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &DelTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "del", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type DelTag struct {

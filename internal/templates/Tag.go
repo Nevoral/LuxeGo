@@ -16,8 +16,20 @@ func %s() *%sTag {
 `, name, comment, name, name, name, typeComponent, typeComponent, strings.ToLower(name), TagStruct(name, typeComponent))
 	}
 	return fmt.Sprintf(`//%s - %s
-func %s(tags ...LuxeGo.Content) *%sTag {
-	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func %s(tags ...interface{}) *%sTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %%T", v))
+		}
+	}
+	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 %s

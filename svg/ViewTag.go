@@ -1,12 +1,25 @@
 package svg
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // View -
-func View(tags ...LuxeGo.Content) *ViewTag {
-	return &ViewTag{ComponentSvgTag: &ComponentSvgTag{Name: "view", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func View(tags ...interface{}) *ViewTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &ViewTag{ComponentSvgTag: &ComponentSvgTag{Name: "view", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type ViewTag struct {

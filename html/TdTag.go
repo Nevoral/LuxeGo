@@ -1,12 +1,25 @@
 package html
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // Td -
-func Td(tags ...LuxeGo.Content) *TdTag {
-	return &TdTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "td", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func Td(tags ...interface{}) *TdTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &TdTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "td", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type TdTag struct {

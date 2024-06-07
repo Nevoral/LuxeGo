@@ -1,12 +1,25 @@
 package html
 
 import (
+	"fmt"
 	"github.com/Nevoral/LuxeGo"
 )
 
 // Q -
-func Q(tags ...LuxeGo.Content) *QTag {
-	return &QTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "q", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+func Q(tags ...interface{}) *QTag {
+	var children []LuxeGo.Content
+	for _, tag := range tags {
+		switch v := tag.(type) {
+		case string:
+			children = append(children, FreeStr(v))
+		case LuxeGo.Content:
+			children = append(children, v)
+		default:
+			// Handle unexpected types if necessary
+			panic(fmt.Sprintf("unexpected type %T", v))
+		}
+	}
+	return &QTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "q", Attributes: &LuxeGo.Attributes{}, Children: &children}}
 }
 
 type QTag struct {

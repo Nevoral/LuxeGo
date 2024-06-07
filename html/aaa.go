@@ -8,6 +8,16 @@ import (
 	"strings"
 )
 
+// FreeStr -
+func FreeStr(msg string) *ComponentHtmlTag {
+	return &ComponentHtmlTag{Name: "", Attributes: nil, Msg: msg, Children: nil}
+}
+
+// Comment -
+func Comment(comment string) *ComponentHtmlTag {
+	return &ComponentHtmlTag{Name: "!--", Attributes: nil, Msg: comment, Children: nil}
+}
+
 func (c *ComponentHtmlTag) AddAttribute(name, value string) {
 	if c.Attributes == nil {
 		panic(c)
