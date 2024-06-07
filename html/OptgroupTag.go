@@ -14,6 +14,8 @@ func Optgroup(tags ...interface{}) *OptgroupTag {
 			children = append(children, FreeStr(v))
 		case LuxeGo.Content:
 			children = append(children, v)
+		case []LuxeGo.Content:
+			children = append(children, v...)
 		default:
 			// Handle unexpected types if necessary
 			panic(fmt.Sprintf("unexpected type %T", v))

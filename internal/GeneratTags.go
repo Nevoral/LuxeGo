@@ -15,7 +15,7 @@ func GenerateHtmlTag(key string) {
 %s`
 	imports := `
 import (
-	"github.com/Nevoral/LuxeGo"%s
+	%s"github.com/Nevoral/LuxeGo"
 )
 
 `
@@ -38,7 +38,7 @@ func DOCTYPE() *DoctypeTag {
 		if isSelfClosing {
 			imports = fmt.Sprintf(imports, "")
 		} else {
-			imports = fmt.Sprintf(imports, "\n\t\"fmt\"")
+			imports = fmt.Sprintf(imports, "\"fmt\"\n\t")
 		}
 		content += tmpl.TagCaller(tagName, "", "Html", isSelfClosing)
 	}
@@ -59,9 +59,9 @@ func GenerataGlobalAtr() {
 	page := `package html
 
 import (
-	"github.com/Nevoral/LuxeGo"
 	"fmt"
 	"slices"
+	"github.com/Nevoral/LuxeGo"
 )
 
 type ComponentHtmlTag struct {
@@ -121,7 +121,7 @@ func GenerateSvgTag(key string) {
 	page := `package svg
 
 import (
-	"github.com/Nevoral/LuxeGo"%s
+	%s"github.com/Nevoral/LuxeGo"
 )
 
 %s`
@@ -137,7 +137,7 @@ import (
 		CreateFile(fmt.Sprintf("svg/%sTag.go", tagName), fmt.Sprintf(page, "", content))
 		return
 	}
-	CreateFile(fmt.Sprintf("svg/%sTag.go", tagName), fmt.Sprintf(page, "\n\t\"fmt\"", content))
+	CreateFile(fmt.Sprintf("svg/%sTag.go", tagName), fmt.Sprintf(page, "\"fmt\"\n\t", content))
 	return
 }
 
@@ -151,9 +151,9 @@ func GenerataGlobalAtrSvg() {
 	page := `package svg
 
 import (
-	"github.com/Nevoral/LuxeGo"
 	"fmt"
 	"slices"
+	"github.com/Nevoral/LuxeGo"
 )
 
 type ComponentSvgTag struct {
