@@ -1,7 +1,7 @@
 package html
 
 import (
-	"LuxeGo/internal/LuxeGo"
+	"github.com/Nevoral/LuxeGo/internal/LuxeGo"
 )
 
 // Div -

@@ -1,9 +1,9 @@
 package internal
 
 import (
-	"LuxeGo/configuration"
-	tmpl "LuxeGo/internal/templates"
 	"fmt"
+	"github.com/Nevoral/LuxeGo/configuration"
+	tmpl "github.com/Nevoral/LuxeGo/internal/templates"
 	"os"
 	"slices"
 	"unicode"

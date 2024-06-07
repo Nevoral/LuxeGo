@@ -1,7 +1,7 @@
 package svg
 
 import (
-	"LuxeGo/internal/LuxeGo"
+	"github.com/Nevoral/LuxeGo/internal/LuxeGo"
 )
 
 // TextPath -

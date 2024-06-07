@@ -1,10 +1,10 @@
 package main
 
 import (
-	"LuxeGo/internal/LuxeGo"
-	"LuxeGo/internal/LuxeGo/html"
-	"LuxeGo/internal/LuxeGo/svg"
 	"fmt"
+	"github.com/Nevoral/LuxeGo/internal/LuxeGo"
+	"github.com/Nevoral/LuxeGo/internal/LuxeGo/html"
+	"github.com/Nevoral/LuxeGo/internal/LuxeGo/svg"
 	"time"
 )
 

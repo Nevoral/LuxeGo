@@ -1,6 +1,6 @@
 package main
 
-import "LuxeGo/internal"
+import "github.com/Nevoral/LuxeGo/internal"
 
 func main() {
 	internal.GenerateHtmlTags()

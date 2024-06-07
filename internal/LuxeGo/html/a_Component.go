@@ -1,8 +1,8 @@
 package html
 
 import (
-	"LuxeGo/internal/LuxeGo"
 	"fmt"
+	"github.com/Nevoral/LuxeGo/internal/LuxeGo"
 	"slices"
 )
 
