@@ -1,10 +1,12 @@
 package main
 
 import (
+	"bytes"
+	"context"
 	"fmt"
-	"github.com/Nevoral/LuxeGo/internal/LuxeGo"
-	"github.com/Nevoral/LuxeGo/internal/LuxeGo/html"
-	"github.com/Nevoral/LuxeGo/internal/LuxeGo/svg"
+	"github.com/Nevoral/LuxeGo"
+	"github.com/Nevoral/LuxeGo/html"
+	"github.com/Nevoral/LuxeGo/svg"
 	"time"
 )
 
@@ -19,9 +21,9 @@ func main() {
 
 func DivByDiv(some string) LuxeGo.Content {
 	var table []LuxeGo.Content
-	for i := 0; i < 8000; i++ {
+	for i := 0; i < 2; i++ {
 		var row []LuxeGo.Content
-		for j := 0; j < 1000; j++ {
+		for j := 0; j < 2; j++ {
 			row = append(row, html.Div(html.FreeStr(fmt.Sprintf("i: %d, j: %d", i, j))))
 		}
 		table = append(table, row...)
@@ -57,10 +59,14 @@ func Teststructure() {
 			),
 		),
 	}
+	var output bytes.Buffer
 	for _, val := range smallComponent {
-		level := 0
-		//fmt.Println(val.Render(level))
-		_ = val.Render(level)
+		fmt.Println(val.RenderString(0))
+		if err := val.Render(context.Background(), &output); err != nil {
+			panic(err)
+		}
 	}
+	fmt.Println("--------------------------------------------------")
+	fmt.Println(output.String())
 
 }
