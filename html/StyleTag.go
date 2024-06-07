@@ -30,3 +30,9 @@ func (s *StyleTag) Nonce(value string) *StyleTag {
 	s.AddAttribute("nonce", value)
 	return s
 }
+
+// Type - Specifies the type of an <input> element.
+func (s *StyleTag) Type(value string) *StyleTag {
+	s.AddAttribute("type", value)
+	return s
+}

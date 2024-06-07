@@ -62,7 +62,7 @@ func FreeStr(msg string) *FreeStrTag {
 }
 
 func GenerateHtmlTags() {
-	for key, _ := range configuration.HtmlAtrTable {
+	for key := range configuration.HtmlAtrTable {
 		GenerateHtmlTag(key)
 	}
 }
