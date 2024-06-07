@@ -9,56 +9,61 @@ import (
 	"unicode"
 )
 
-func GenerateHtmlTags() {
+func GenerateHtmlTag(key string) {
 	page := `package html
 %s
 %s`
-	for key, val := range configuration.HtmlAtrTable {
-		imports := `
+	imports := `
 import (
 	"github.com/Nevoral/LuxeGo"
 )
 
 `
-		content := ""
-		tagName := capitalizeFirst(key)
-		switch key {
-		case "!DOCTYPE":
-			tagName = "Doctype"
-			content += fmt.Sprintf(`//DOCTYPE - %s
+	val := configuration.HtmlAtrTable[key]
+	content := ""
+	tagName := capitalizeFirst(key)
+	switch key {
+	case "!DOCTYPE":
+		tagName = "Doctype"
+		content += fmt.Sprintf(`//DOCTYPE - %s
 func DOCTYPE() *DoctypeTag {
 	return &DoctypeTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "!DOCTYPE", Attributes: &LuxeGo.Attributes{}, Children: nil}}
 }
 
 %s
 `, "", tmpl.TagStruct("Doctype", "Html"))
-		case "!--":
-			tagName = "Comment"
-			imports = ""
-			content += fmt.Sprintf(`//Comment - %s
+	case "!--":
+		tagName = "Comment"
+		imports = ""
+		content += fmt.Sprintf(`//Comment - %s
 func Comment(comment string) *CommentTag {
 	return &CommentTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "!--", Attributes: nil, Msg: comment, Children: nil}}
 }
 
 %s
 `, "", tmpl.TagStruct("Comment", "Html"))
-		case "":
-			tagName = "FreeStr"
-			imports = ""
-			content += fmt.Sprintf(`//FreeStr - %s
+	case "":
+		tagName = "FreeStr"
+		imports = ""
+		content += fmt.Sprintf(`//FreeStr - %s
 func FreeStr(msg string) *FreeStrTag {
 	return &FreeStrTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "", Attributes: nil,  Msg: msg, Children: nil}}
 }
 
 %s
 `, "", tmpl.TagStruct("FreeStr", "Html"))
-		default:
-			content += tmpl.TagCaller(tagName, "", "Html", slices.Contains(configuration.SelfClosingHtmlTag, key))
-		}
-		for _, atr := range val {
-			content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SpecificAtrTable[atr], slices.Contains(configuration.BoolAtr, atr))
-		}
-		CreateFile(fmt.Sprintf("html/%sTag.go", tagName), fmt.Sprintf(page, imports, content))
+	default:
+		content += tmpl.TagCaller(tagName, "", "Html", slices.Contains(configuration.SelfClosingHtmlTag, key))
+	}
+	for _, atr := range val {
+		content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SpecificAtrTable[atr], slices.Contains(configuration.BoolAtr, atr))
+	}
+	CreateFile(fmt.Sprintf("html/%sTag.go", tagName), fmt.Sprintf(page, imports, content))
+}
+
+func GenerateHtmlTags() {
+	for key, _ := range configuration.HtmlAtrTable {
+		GenerateHtmlTag(key)
 	}
 }
 
@@ -114,7 +119,7 @@ func (c *ComponentHtmlTag) Data(name, value string) *ComponentHtmlTag {
 	CreateFile(fmt.Sprintf("html/a_Component.go"), fmt.Sprintf(page, content))
 }
 
-func GenerateSvgTags() {
+func GenerateSvgTag(key string) {
 	page := `package svg
 
 import (
@@ -122,14 +127,20 @@ import (
 )
 
 %s`
-	for key, val := range configuration.SvgAtrTable {
-		content := ""
-		tagName := capitalizeFirst(key)
-		content += tmpl.TagCaller(tagName, "", "Svg", slices.Contains(configuration.SvgSelfClosing, key))
-		for _, atr := range val {
-			content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SvgSoecificAtr[atr], slices.Contains(configuration.BoolSvgAtr, atr))
-		}
-		CreateFile(fmt.Sprintf("svg/%sTag.go", tagName), fmt.Sprintf(page, content))
+	val := configuration.SvgAtrTable[key]
+	content := ""
+	tagName := capitalizeFirst(key)
+	content += tmpl.TagCaller(tagName, "", "Svg", slices.Contains(configuration.SvgSelfClosing, key))
+	for _, atr := range val {
+		content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SvgSoecificAtr[atr], slices.Contains(configuration.BoolSvgAtr, atr))
+	}
+	CreateFile(fmt.Sprintf("svg/%sTag.go", tagName), fmt.Sprintf(page, content))
+
+}
+
+func GenerateSvgTags() {
+	for key := range configuration.SvgAtrTable {
+		GenerateSvgTag(key)
 	}
 }
 

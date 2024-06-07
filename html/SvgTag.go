@@ -12,3 +12,15 @@ func Svg(tags ...LuxeGo.Content) *SvgTag {
 type SvgTag struct {
 	*ComponentHtmlTag
 }
+
+// Xmlns -
+func (s *SvgTag) Xmlns(value string) *SvgTag {
+	s.AddAttribute("xmlns", value)
+	return s
+}
+
+// ViewBox -
+func (s *SvgTag) ViewBox(value string) *SvgTag {
+	s.AddAttribute("viewbox", value)
+	return s
+}
