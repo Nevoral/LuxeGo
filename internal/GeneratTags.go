@@ -16,7 +16,7 @@ func GenerateHtmlTags() {
 	for key, val := range configuration.HtmlAtrTable {
 		imports := `
 import (
-	"LuxeGo/internal/lx"
+	"LuxeGo/internal/LuxeGo"
 )
 
 `
@@ -27,7 +27,7 @@ import (
 			tagName = tagName[1:]
 			content += fmt.Sprintf(`//%s - %s
 func %s() *%sTag {
-	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: &lx.Attributes{}, Children: nil}}
+	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: &LuxeGo.Attributes{}, Children: nil}}
 }
 
 %s
@@ -58,7 +58,7 @@ func %s(msg string) *%sTag {
 		for _, atr := range val {
 			content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SpecificAtrTable[atr], slices.Contains(configuration.BoolAtr, atr))
 		}
-		CreateFile(fmt.Sprintf("internal/lx/html/%sTag.go", tagName), fmt.Sprintf(page, imports, content))
+		CreateFile(fmt.Sprintf("internal/LuxeGo/html/%sTag.go", tagName), fmt.Sprintf(page, imports, content))
 	}
 }
 
@@ -66,16 +66,16 @@ func GenerataGlobalAtr() {
 	page := `package html
 
 import (
-	"LuxeGo/internal/lx"
+	"LuxeGo/internal/LuxeGo"
 	"fmt"
 	"slices"
 )
 
 type ComponentHtmlTag struct {
 	Name       string
-	Attributes *lx.Attributes
+	Attributes *LuxeGo.Attributes
 	Msg        string
-	Children   *[]lx.Content
+	Children   *[]LuxeGo.Content
 }
 %s`
 	content := ""
@@ -86,7 +86,7 @@ type ComponentHtmlTag struct {
 //Aria - %s
 func (c *ComponentHtmlTag) Aria(name, value string) *ComponentHtmlTag {
 	a := fmt.Sprintf("aria-%%s", name)
-	if slices.Contains(lx.GlobAriaName, name) {
+	if slices.Contains(LuxeGo.GlobAriaName, name) {
 		c.AddAttribute(a, value)
 	} else {
 	//TODO: Specific aria attributes need to be check before adding to the map of attributes
@@ -111,14 +111,14 @@ func (c *ComponentHtmlTag) Data(name, value string) *ComponentHtmlTag {
 	for atr, comment := range configuration.GlobalEventAtrTable {
 		content += tmpl.TagMethod("ComponentHtml", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolAtr, atr))
 	}
-	CreateFile(fmt.Sprintf("internal/lx/html/a_Component.go"), fmt.Sprintf(page, content))
+	CreateFile(fmt.Sprintf("internal/LuxeGo/html/a_Component.go"), fmt.Sprintf(page, content))
 }
 
 func GenerateSvgTags() {
 	page := `package svg
 
 import (
-	"LuxeGo/internal/lx"
+	"LuxeGo/internal/LuxeGo"
 )
 
 %s`
@@ -132,7 +132,7 @@ import (
 		for _, atr := range val {
 			content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SvgSoecificAtr[atr], slices.Contains(configuration.BoolSvgAtr, atr))
 		}
-		CreateFile(fmt.Sprintf("internal/lx/svg/%sTag.go", tagName), fmt.Sprintf(page, content))
+		CreateFile(fmt.Sprintf("internal/LuxeGo/svg/%sTag.go", tagName), fmt.Sprintf(page, content))
 	}
 }
 
@@ -140,16 +140,16 @@ func GenerataGlobalAtrSvg() {
 	page := `package svg
 
 import (
-	"LuxeGo/internal/lx"
+	"LuxeGo/internal/LuxeGo"
 	"fmt"
 	"slices"
 )
 
 type ComponentSvgTag struct {
 	Name       string
-	Attributes *lx.Attributes
+	Attributes *LuxeGo.Attributes
 	Msg        string
-	Children   *[]lx.Content
+	Children   *[]LuxeGo.Content
 }
 %s`
 	content := ""
@@ -160,7 +160,7 @@ type ComponentSvgTag struct {
 //Aria - %s
 func (c *ComponentSvgTag) Aria(name, value string) *ComponentSvgTag {
 	a := fmt.Sprintf("aria-%%s", name)
-	if slices.Contains(lx.GlobAriaName, name) {
+	if slices.Contains(LuxeGo.GlobAriaName, name) {
 		c.AddAttribute(a, value)
 	} else {
 	//TODO: Specific aria attributes need to be check before adding to the map of attributes
@@ -185,7 +185,7 @@ func (c *ComponentSvgTag) Data(name, value string) *ComponentSvgTag {
 	for atr, comment := range configuration.GlobalEventAtrTable {
 		content += tmpl.TagMethod("ComponentSvg", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolSvgAtr, atr))
 	}
-	CreateFile(fmt.Sprintf("internal/lx/svg/a_Component.go"), fmt.Sprintf(page, content))
+	CreateFile(fmt.Sprintf("internal/LuxeGo/svg/a_Component.go"), fmt.Sprintf(page, content))
 }
 
 func capitalizeFirst(s string) string {

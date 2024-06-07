@@ -9,15 +9,15 @@ func TagCaller(name, comment, typeComponent string, isBool bool) string {
 	if isBool {
 		return fmt.Sprintf(`//%s - %s
 func %s() *%sTag {
-	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: &lx.Attributes{}, Children: nil}}
+	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: &LuxeGo.Attributes{}, Children: nil}}
 }
 
 %s
 `, name, comment, name, name, name, typeComponent, typeComponent, strings.ToLower(name), TagStruct(name, typeComponent))
 	}
 	return fmt.Sprintf(`//%s - %s
-func %s(tags ...lx.Content) *%sTag {
-	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: &lx.Attributes{}, Children: &tags}}
+func %s(tags ...LuxeGo.Content) *%sTag {
+	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
 }
 
 %s

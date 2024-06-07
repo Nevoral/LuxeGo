@@ -1,0 +1,14 @@
+package html
+
+import (
+	"LuxeGo/internal/LuxeGo"
+)
+
+// Cite -
+func Cite(tags ...LuxeGo.Content) *CiteTag {
+	return &CiteTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "cite", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+}
+
+type CiteTag struct {
+	*ComponentHtmlTag
+}

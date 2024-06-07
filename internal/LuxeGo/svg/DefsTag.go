@@ -1,0 +1,14 @@
+package svg
+
+import (
+	"LuxeGo/internal/LuxeGo"
+)
+
+// Defs -
+func Defs(tags ...LuxeGo.Content) *DefsTag {
+	return &DefsTag{ComponentSvgTag: &ComponentSvgTag{Name: "defs", Attributes: &LuxeGo.Attributes{}, Children: &tags}}
+}
+
+type DefsTag struct {
+	*ComponentSvgTag
+}

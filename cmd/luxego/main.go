@@ -1,9 +1,9 @@
 package main
 
 import (
-	"LuxeGo/internal/lx"
-	"LuxeGo/internal/lx/html"
-	"LuxeGo/internal/lx/svg"
+	"LuxeGo/internal/LuxeGo"
+	"LuxeGo/internal/LuxeGo/html"
+	"LuxeGo/internal/LuxeGo/svg"
 	"fmt"
 	"time"
 )
@@ -17,10 +17,10 @@ func main() {
 	return
 }
 
-func DivByDiv(some string) lx.Content {
-	var table []lx.Content
+func DivByDiv(some string) LuxeGo.Content {
+	var table []LuxeGo.Content
 	for i := 0; i < 8000; i++ {
-		var row []lx.Content
+		var row []LuxeGo.Content
 		for j := 0; j < 1000; j++ {
 			row = append(row, html.Div(html.FreeStr(fmt.Sprintf("i: %d, j: %d", i, j))))
 		}
@@ -39,7 +39,7 @@ func DivByDiv(some string) lx.Content {
 }
 
 func Teststructure() {
-	smallComponent := []lx.Content{html.DOCTYPE().Html(),
+	smallComponent := []LuxeGo.Content{html.DOCTYPE().Html(),
 		html.Html(
 			html.Head(),
 			html.Body(
