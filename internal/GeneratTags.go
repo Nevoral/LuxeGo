@@ -24,34 +24,34 @@ import (
 		tagName := capitalizeFirst(key)
 		switch key {
 		case "!DOCTYPE":
-			tagName = tagName[1:]
-			content += fmt.Sprintf(`//%s - %s
-func %s() *%sTag {
-	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: &LuxeGo.Attributes{}, Children: nil}}
+			tagName = "Doctype"
+			content += fmt.Sprintf(`//DOCTYPE - %s
+func DOCTYPE() *DoctypeTag {
+	return &DoctypeTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "!DOCTYPE", Attributes: &LuxeGo.Attributes{}, Children: nil}}
 }
 
 %s
-`, tagName, "", tagName, tagName, tagName, "Html", "Html", key, tmpl.TagStruct(tagName, "Html"))
+`, "", tmpl.TagStruct("Doctype", "Html"))
 		case "!--":
 			tagName = "Comment"
 			imports = ""
-			content += fmt.Sprintf(`//%s - %s
-func %s(comment string) *%sTag {
-	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: nil, Msg: comment, Children: nil}}
+			content += fmt.Sprintf(`//Comment - %s
+func Comment(comment string) *CommentTag {
+	return &CommentTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "!--", Attributes: nil, Msg: comment, Children: nil}}
 }
 
 %s
-`, tagName, "", tagName, tagName, tagName, "Html", "Html", key, tmpl.TagStruct(tagName, "Html"))
+`, "", tmpl.TagStruct("Comment", "Html"))
 		case "":
 			tagName = "FreeStr"
 			imports = ""
-			content += fmt.Sprintf(`//%s - %s
-func %s(msg string) *%sTag {
-	return &%sTag{Component%sTag: &Component%sTag{Name: "%s", Attributes: nil,  Msg: msg, Children: nil}}
+			content += fmt.Sprintf(`//FreeStr - %s
+func FreeStr(msg string) *FreeStrTag {
+	return &FreeStrTag{ComponentHtmlTag: &ComponentHtmlTag{Name: "", Attributes: nil,  Msg: msg, Children: nil}}
 }
 
 %s
-`, tagName, "", tagName, tagName, tagName, "Html", "Html", "", tmpl.TagStruct(tagName, "Html"))
+`, "", tmpl.TagStruct("FreeStr", "Html"))
 		default:
 			content += tmpl.TagCaller(tagName, "", "Html", slices.Contains(configuration.SelfClosingHtmlTag, key))
 		}
@@ -123,9 +123,6 @@ import (
 
 %s`
 	for key, val := range configuration.SvgAtrTable {
-		if key == "!DOCTYPE" || key == "!--" || key == "" {
-			continue
-		}
 		content := ""
 		tagName := capitalizeFirst(key)
 		content += tmpl.TagCaller(tagName, "", "Svg", slices.Contains(configuration.SvgSelfClosing, key))
