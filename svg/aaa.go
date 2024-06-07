@@ -18,6 +18,11 @@ func Comment(comment string) *ComponentSvgTag {
 	return &ComponentSvgTag{Name: "!--", Attributes: nil, Msg: comment, Children: nil}
 }
 
+func (c *ComponentSvgTag) CustomAtr(name, value string) *ComponentSvgTag {
+	c.AddAttribute(name, value)
+	return c
+}
+
 func (c *ComponentSvgTag) AddAttribute(name, value string) {
 	if c.Attributes == nil {
 		panic(c)

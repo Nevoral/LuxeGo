@@ -18,6 +18,11 @@ func Comment(comment string) *ComponentHtmlTag {
 	return &ComponentHtmlTag{Name: "!--", Attributes: nil, Msg: comment, Children: nil}
 }
 
+func (c *ComponentHtmlTag) CustomAtr(name, value string) *ComponentHtmlTag {
+	c.AddAttribute(name, value)
+	return c
+}
+
 func (c *ComponentHtmlTag) AddAttribute(name, value string) {
 	if c.Attributes == nil {
 		panic(c)
