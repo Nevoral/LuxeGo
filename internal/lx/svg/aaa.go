@@ -25,7 +25,7 @@ func (c *ComponentSvgTag) Render(level int) string {
 
 	if c.Children == nil {
 		if c.Attributes != nil {
-			return fmt.Sprintf("%s<%s%s>", tab, c.Name, attributes)
+			return fmt.Sprintf("%s<%s%s />", tab, c.Name, attributes)
 		}
 		if c.Name == "" {
 			return fmt.Sprintf("%s%s", tab, c.Msg)

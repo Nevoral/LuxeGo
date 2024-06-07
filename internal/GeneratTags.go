@@ -32,7 +32,6 @@ func %s() *%sTag {
 
 %s
 `, tagName, "", tagName, tagName, tagName, "Html", "Html", key, tmpl.TagStruct(tagName, "Html"))
-			break
 		case "!--":
 			tagName = "Comment"
 			imports = ""
@@ -43,7 +42,6 @@ func %s(comment string) *%sTag {
 
 %s
 `, tagName, "", tagName, tagName, tagName, "Html", "Html", key, tmpl.TagStruct(tagName, "Html"))
-			break
 		case "":
 			tagName = "FreeStr"
 			imports = ""
@@ -54,7 +52,6 @@ func %s(msg string) *%sTag {
 
 %s
 `, tagName, "", tagName, tagName, tagName, "Html", "Html", "", tmpl.TagStruct(tagName, "Html"))
-			break
 		default:
 			content += tmpl.TagCaller(tagName, "", "Html", slices.Contains(configuration.SelfClosingHtmlTag, key))
 		}
@@ -68,7 +65,11 @@ func %s(msg string) *%sTag {
 func GenerataGlobalAtr() {
 	page := `package html
 
-import "LuxeGo/internal/lx"
+import (
+	"LuxeGo/internal/lx"
+	"fmt"
+	"slices"
+)
 
 type ComponentHtmlTag struct {
 	Name       string
@@ -79,7 +80,33 @@ type ComponentHtmlTag struct {
 %s`
 	content := ""
 	for atr, comment := range configuration.GlobalAtrTable {
-		content += tmpl.TagMethod("ComponentHtml", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolAtr, atr))
+		switch atr {
+		case "aria":
+			content += fmt.Sprintf(`
+//Aria - %s
+func (c *ComponentHtmlTag) Aria(name, value string) *ComponentHtmlTag {
+	a := fmt.Sprintf("aria-%%s", name)
+	if slices.Contains(lx.GlobAriaName, name) {
+		c.AddAttribute(a, value)
+	} else {
+	//TODO: Specific aria attributes need to be check before adding to the map of attributes
+		c.AddAttribute(a, value)
+	}
+	return c
+}
+`, comment)
+		case "data":
+			content += fmt.Sprintf(`
+//Data - %s
+func (c *ComponentHtmlTag) Data(name, value string) *ComponentHtmlTag {
+	a := fmt.Sprintf("data-%%s", name)
+	c.AddAttribute(a, value)
+	return c
+}
+`, comment)
+		default:
+			content += tmpl.TagMethod("ComponentHtml", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolAtr, atr))
+		}
 	}
 	for atr, comment := range configuration.GlobalEventAtrTable {
 		content += tmpl.TagMethod("ComponentHtml", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolAtr, atr))
@@ -112,7 +139,11 @@ import (
 func GenerataGlobalAtrSvg() {
 	page := `package svg
 
-import "LuxeGo/internal/lx"
+import (
+	"LuxeGo/internal/lx"
+	"fmt"
+	"slices"
+)
 
 type ComponentSvgTag struct {
 	Name       string
@@ -123,7 +154,33 @@ type ComponentSvgTag struct {
 %s`
 	content := ""
 	for atr, comment := range configuration.SvgGlobalAtr {
-		content += tmpl.TagMethod("ComponentSvg", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolSvgAtr, atr))
+		switch atr {
+		case "aria":
+			content += fmt.Sprintf(`
+//Aria - %s
+func (c *ComponentSvgTag) Aria(name, value string) *ComponentSvgTag {
+	a := fmt.Sprintf("aria-%%s", name)
+	if slices.Contains(lx.GlobAriaName, name) {
+		c.AddAttribute(a, value)
+	} else {
+	//TODO: Specific aria attributes need to be check before adding to the map of attributes
+		c.AddAttribute(a, value)
+	}
+	return c
+}
+`, comment)
+		case "data":
+			content += fmt.Sprintf(`
+//Data - %s
+func (c *ComponentSvgTag) Data(name, value string) *ComponentSvgTag {
+	a := fmt.Sprintf("data-%%s", name)
+	c.AddAttribute(a, value)
+	return c
+}
+`, comment)
+		default:
+			content += tmpl.TagMethod("ComponentSvg", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolSvgAtr, atr))
+		}
 	}
 	for atr, comment := range configuration.GlobalEventAtrTable {
 		content += tmpl.TagMethod("ComponentSvg", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolSvgAtr, atr))

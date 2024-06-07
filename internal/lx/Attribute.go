@@ -2,6 +2,10 @@ package lx
 
 import "fmt"
 
+var GlobAriaName = []string{"atomic", "busy", "controls", "current", "describedby", "description", "details", "disabled",
+	"dropeffect", "errormessage", "flowto", "grabbed", "haspopup", "hidden", "invalid", "keyshortcuts", "label",
+	"labelledby", "live", "owns", "relevant", "roledescription"}
+
 type Attribute struct {
 	Name  string
 	Value string

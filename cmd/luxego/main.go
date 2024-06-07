@@ -5,23 +5,37 @@ import (
 	"LuxeGo/internal/lx/html"
 	"LuxeGo/internal/lx/svg"
 	"fmt"
+	"time"
 )
 
 func main() {
+	start := time.Now()
+
 	Teststructure()
+	elapsed := time.Since(start)
+	fmt.Printf("page took %s", elapsed)
 	return
 }
 
 func DivByDiv(some string) lx.Content {
+	var table []lx.Content
+	for i := 0; i < 8000; i++ {
+		var row []lx.Content
+		for j := 0; j < 1000; j++ {
+			row = append(row, html.Div(html.FreeStr(fmt.Sprintf("i: %d, j: %d", i, j))))
+		}
+		table = append(table, row...)
+	}
 	return html.Div(
 		html.Div(
 			html.Input().
 				Class("flex flex-row").
 				Id("nevim"),
 			html.FreeStr("nevim neco jsem napsal"),
+			html.Div(table...),
 			html.FreeStr(some),
 		).Class("flex flex-row"),
-	).Data("nevim")
+	).Data("", "nevim")
 }
 
 func Teststructure() {
@@ -45,7 +59,8 @@ func Teststructure() {
 	}
 	for _, val := range smallComponent {
 		level := 0
-		fmt.Println(val.Render(level))
+		//fmt.Println(val.Render(level))
+		_ = val.Render(level)
 	}
 
 }

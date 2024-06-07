@@ -375,7 +375,3 @@ var SpecificAtrTable = map[string]string{
 
 var BoolAtr = []string{"async", "autoplay", "checked", "controls", "default", "defer", "disabled", "html", "ismap", "loop",
 	"multiple", "muted", "novalidate", "open", "readonly", "required", "reversed", "selected", "popover"}
-
-var GlobAriaName = []string{"atomic", "busy", "controls", "current", "describedby", "description", "details", "disabled",
-	"dropeffect", "errormessage", "flowto", "grabbed", "haspopup", "hidden", "invalid", "keyshortcuts", "label",
-	"labelledby", "live", "owns", "relevant", "roledescription"}
