@@ -90,7 +90,12 @@ type ComponentHtmlTag struct {
 			content += fmt.Sprintf(`
 //Aria - %s
 func (c *ComponentHtmlTag) Aria(name, value string) *ComponentHtmlTag {
-	a := fmt.Sprintf("aria-%%s", name)
+	var a string
+	if name == "" {
+		a = fmt.Sprintf("aria-%%s", name)
+	} else {	
+		a = fmt.Sprintf("aria-%%s", name)
+	}
 	if slices.Contains(LuxeGo.GlobAriaName, name) {
 		c.AddAttribute(a, value)
 	} else {
@@ -104,7 +109,12 @@ func (c *ComponentHtmlTag) Aria(name, value string) *ComponentHtmlTag {
 			content += fmt.Sprintf(`
 //Data - %s
 func (c *ComponentHtmlTag) Data(name, value string) *ComponentHtmlTag {
-	a := fmt.Sprintf("data-%%s", name)
+	var a string
+	if name == "" {
+		a = fmt.Sprintf("data-%%s", name)
+	} else {	
+		a = fmt.Sprintf("data-%%s", name)
+	}
 	c.AddAttribute(a, value)
 	return c
 }
@@ -167,7 +177,12 @@ type ComponentSvgTag struct {
 			content += fmt.Sprintf(`
 //Aria - %s
 func (c *ComponentSvgTag) Aria(name, value string) *ComponentSvgTag {
-	a := fmt.Sprintf("aria-%%s", name)
+	var a string
+	if name == "" {
+		a = fmt.Sprintf("aria-%%s", name)
+	} else {	
+		a = fmt.Sprintf("aria-%%s", name)
+	}
 	if slices.Contains(LuxeGo.GlobAriaName, name) {
 		c.AddAttribute(a, value)
 	} else {
@@ -181,7 +196,12 @@ func (c *ComponentSvgTag) Aria(name, value string) *ComponentSvgTag {
 			content += fmt.Sprintf(`
 //Data - %s
 func (c *ComponentSvgTag) Data(name, value string) *ComponentSvgTag {
-	a := fmt.Sprintf("data-%%s", name)
+	var a string
+	if name == "" {
+		a = fmt.Sprintf("data-%%s", name)
+	} else {	
+		a = fmt.Sprintf("data-%%s", name)
+	}
 	c.AddAttribute(a, value)
 	return c
 }
