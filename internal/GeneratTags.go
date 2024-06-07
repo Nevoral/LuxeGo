@@ -16,7 +16,7 @@ func GenerateHtmlTags() {
 	for key, val := range configuration.HtmlAtrTable {
 		imports := `
 import (
-	"LuxeGo/internal/LuxeGo"
+	"github.com/Nevoral/LuxeGo"
 )
 
 `
@@ -58,7 +58,7 @@ func FreeStr(msg string) *FreeStrTag {
 		for _, atr := range val {
 			content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SpecificAtrTable[atr], slices.Contains(configuration.BoolAtr, atr))
 		}
-		CreateFile(fmt.Sprintf("internal/LuxeGo/html/%sTag.go", tagName), fmt.Sprintf(page, imports, content))
+		CreateFile(fmt.Sprintf("html/%sTag.go", tagName), fmt.Sprintf(page, imports, content))
 	}
 }
 
@@ -66,7 +66,7 @@ func GenerataGlobalAtr() {
 	page := `package html
 
 import (
-	"LuxeGo/internal/LuxeGo"
+	"github.com/Nevoral/LuxeGo"
 	"fmt"
 	"slices"
 )
@@ -111,14 +111,14 @@ func (c *ComponentHtmlTag) Data(name, value string) *ComponentHtmlTag {
 	for atr, comment := range configuration.GlobalEventAtrTable {
 		content += tmpl.TagMethod("ComponentHtml", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolAtr, atr))
 	}
-	CreateFile(fmt.Sprintf("internal/LuxeGo/html/a_Component.go"), fmt.Sprintf(page, content))
+	CreateFile(fmt.Sprintf("html/a_Component.go"), fmt.Sprintf(page, content))
 }
 
 func GenerateSvgTags() {
 	page := `package svg
 
 import (
-	"LuxeGo/internal/LuxeGo"
+	"github.com/Nevoral/LuxeGo"
 )
 
 %s`
@@ -129,7 +129,7 @@ import (
 		for _, atr := range val {
 			content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SvgSoecificAtr[atr], slices.Contains(configuration.BoolSvgAtr, atr))
 		}
-		CreateFile(fmt.Sprintf("internal/LuxeGo/svg/%sTag.go", tagName), fmt.Sprintf(page, content))
+		CreateFile(fmt.Sprintf("svg/%sTag.go", tagName), fmt.Sprintf(page, content))
 	}
 }
 
@@ -137,7 +137,7 @@ func GenerataGlobalAtrSvg() {
 	page := `package svg
 
 import (
-	"LuxeGo/internal/LuxeGo"
+	"github.com/Nevoral/LuxeGo"
 	"fmt"
 	"slices"
 )
@@ -182,7 +182,7 @@ func (c *ComponentSvgTag) Data(name, value string) *ComponentSvgTag {
 	for atr, comment := range configuration.GlobalEventAtrTable {
 		content += tmpl.TagMethod("ComponentSvg", capitalizeFirst(atr), comment, slices.Contains(configuration.BoolSvgAtr, atr))
 	}
-	CreateFile(fmt.Sprintf("internal/LuxeGo/svg/a_Component.go"), fmt.Sprintf(page, content))
+	CreateFile(fmt.Sprintf("svg/a_Component.go"), fmt.Sprintf(page, content))
 }
 
 func capitalizeFirst(s string) string {
