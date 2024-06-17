@@ -110,7 +110,7 @@ var HtmlAtrTable = map[string][]string{
 	"sub":      {},
 	"summary":  {},
 	"sup":      {},
-	"svg":      {"xmlns", "viewBox", "width", "height", "preserveAspectRatio", "version", "baseProfile", "x", "y"},
+	"svg":      {"fill", "xmlns", "viewBox", "width", "height", "preserveAspectRatio", "version", "baseProfile", "x", "y"},
 	"table":    {},
 	"tbody":    {},
 	"td":       {"colspan", "headers", "rowspan"},

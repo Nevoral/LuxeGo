@@ -47,7 +47,7 @@ var SvgAtrTable = map[string][]string{
 	"mask":                {"height", "maskContentUnits", "maskUnits", "width", "x", "y"},
 	"metadata":            {},
 	"mpath":               {"href"},
-	"path":                {"d", "pathLength"},
+	"path":                {"d", "pathLength", "fill-rule", "clip-rule"},
 	"pattern":             {"height", "patternContentUnits", "patternTransform", "patternUnits", "preserveAspectRatio", "viewBox", "width", "x", "y"},
 	"polygon":             {"points", "pathLength"},
 	"polyline":            {"points", "pathLength"},
@@ -57,7 +57,7 @@ var SvgAtrTable = map[string][]string{
 	"set":                 {"to", "attributeName", "attributeType", "begin", "dur", "end", "fill", "repeatCount", "repeatDur", "restart"},
 	"stop":                {"offset", "stop-color", "stop-opacity"},
 	"style":               {"type", "media", "title"},
-	"svg":                 {"x", "y", "width", "height", "viewBox", "preserveAspectRatio", "version", "baseProfile", "xmlns", "xmlns:xlink"},
+	"svg":                 {"x", "y", "width", "height", "viewBox", "preserveAspectRatio", "version", "baseProfile", "xmlns", "xmlns:xlink", "fill"},
 	"switch":              {},
 	"symbol":              {"viewBox", "preserveAspectRatio", "refX", "refY"},
 	"text":                {"x", "y", "dx", "dy", "rotate", "textLength", "lengthAdjust"},
@@ -85,7 +85,7 @@ var SvgSelfClosing = []string{"animate", "animateMotion", "animateTransform", "c
 
 var BoolSvgAtr = []string{"externalResourcesRequired", "focusable", "requiredExtensions", "requiredFeatures"}
 
-var SvgSoecificAtr = map[string]string{
+var SvgSpecificAtr = map[string]string{
 	"x":                   "",
 	"y":                   "",
 	"dx":                  "",

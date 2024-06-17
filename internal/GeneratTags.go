@@ -131,7 +131,7 @@ import (
 	isSelfClosing := slices.Contains(configuration.SvgSelfClosing, key)
 	content += tmpl.TagCaller(tagName, "", "Svg", isSelfClosing)
 	for _, atr := range val {
-		content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SvgSoecificAtr[atr], slices.Contains(configuration.BoolSvgAtr, atr))
+		content += tmpl.TagMethod(tagName, capitalizeFirst(atr), configuration.SvgSpecificAtr[atr], slices.Contains(configuration.BoolSvgAtr, atr))
 	}
 	if isSelfClosing {
 		CreateFile(fmt.Sprintf("svg/%sTag.go", tagName), fmt.Sprintf(page, "", content))

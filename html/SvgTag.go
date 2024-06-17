@@ -28,6 +28,12 @@ type SvgTag struct {
 	*ComponentHtmlTag
 }
 
+// Fill -
+func (s *SvgTag) Fill(value string) *SvgTag {
+	s.AddAttribute("fill", value)
+	return s
+}
+
 // Xmlns -
 func (s *SvgTag) Xmlns(value string) *SvgTag {
 	s.AddAttribute("xmlns", value)

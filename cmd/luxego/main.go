@@ -51,7 +51,7 @@ func Teststructure() {
 						svg.A(
 							svg.Animate(),
 						).Id("nevim"),
-					).ViewBox("").Class("flex"),
+					).ViewBox("").Fill("").Class("flex"),
 					html.Div(
 						"nevim",
 						"html.Div(),",

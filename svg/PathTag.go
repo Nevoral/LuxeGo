@@ -24,3 +24,15 @@ func (p *PathTag) PathLength(value string) *PathTag {
 	p.AddAttribute("pathlength", value)
 	return p
 }
+
+// FillRule -
+func (p *PathTag) FillRule(value string) *PathTag {
+	p.AddAttribute("fill-rule", value)
+	return p
+}
+
+// ClipRule -
+func (p *PathTag) ClipRule(value string) *PathTag {
+	p.AddAttribute("clip-rule", value)
+	return p
+}

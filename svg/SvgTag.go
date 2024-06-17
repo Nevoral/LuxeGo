@@ -87,3 +87,9 @@ func (s *SvgTag) XmlnsXlink(value string) *SvgTag {
 	s.AddAttribute("xmlns:xlink", value)
 	return s
 }
+
+// Fill -
+func (s *SvgTag) Fill(value string) *SvgTag {
+	s.AddAttribute("fill", value)
+	return s
+}
