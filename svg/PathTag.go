@@ -36,3 +36,9 @@ func (p *PathTag) ClipRule(value string) *PathTag {
 	p.AddAttribute("clip-rule", value)
 	return p
 }
+
+// Fill -
+func (p *PathTag) Fill(value string) *PathTag {
+	p.AddAttribute("fill", value)
+	return p
+}

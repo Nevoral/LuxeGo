@@ -27,3 +27,21 @@ func G(tags ...interface{}) *GTag {
 type GTag struct {
 	*ComponentSvgTag
 }
+
+// StrokeWidth -
+func (g *GTag) StrokeWidth(value string) *GTag {
+	g.AddAttribute("stroke-width", value)
+	return g
+}
+
+// StrokeLinecap -
+func (g *GTag) StrokeLinecap(value string) *GTag {
+	g.AddAttribute("stroke-linecap", value)
+	return g
+}
+
+// StrokeLinejoin -
+func (g *GTag) StrokeLinejoin(value string) *GTag {
+	g.AddAttribute("stroke-linejoin", value)
+	return g
+}
