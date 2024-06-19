@@ -37,7 +37,7 @@ var SvgAtrTable = map[string][]string{
 	"feTurbulence":        {"baseFrequency", "numOctaves", "seed", "stitchTiles", "type"},
 	"filter":              {"x", "y", "width", "height", "filterUnits", "primitiveUnits", "filterRes"},
 	"foreignObject":       {"x", "y", "width", "height"},
-	"g":                   {"stroke-width", "stroke-linecap", "stroke-linejoin"},
+	"g":                   {"stroke-width", "stroke-linecap", "stroke-linejoin", "transform"},
 	"hatch":               {"x", "y", "pitch", "rotate", "hatchUnits", "hatchContentUnits", "transform"},
 	"hatchpath":           {"d", "offset", "stroke-width", "pathLength"},
 	"image":               {"href", "x", "y", "width", "height", "preserveAspectRatio"},

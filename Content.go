@@ -6,7 +6,7 @@ import (
 )
 
 type Content interface {
-	AddAttribute(name, value string)
 	Render(ctx context.Context, writer io.Writer) error
-	RenderString(level int) string
+	//AddAttribute(name, value string)
+	//RenderString(level int) string
 }

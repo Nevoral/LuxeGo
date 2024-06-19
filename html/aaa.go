@@ -64,6 +64,7 @@ func (c *ComponentHtmlTag) Render(ctx context.Context, writer io.Writer) error {
 	return err
 }
 
+/*
 func (c *ComponentHtmlTag) RenderString(level int) string {
 	var attributes string
 	tab := strings.Repeat("\t", level)
@@ -87,3 +88,4 @@ func (c *ComponentHtmlTag) RenderString(level int) string {
 	}
 	return fmt.Sprintf("%s<%s%s>%s\n%s</%s>", tab, c.Name, attributes, result.String(), tab, c.Name)
 }
+*/
