@@ -1,0 +1,158 @@
+{{block NodeDefinition . -}}
+{{- define CustomAttribute .TagName}}
+/* CustomAttribute- This method is supported only on tags that support custom attributes in HTML5 standart.
+Using name, value and boolean is specified how to generate this attribuite into final HTML file. */
+func ({{.}} *{{.}}Attributes) CustomAttribute(name, value string, boolean bool) *{{.}} {
+    {{.}}.RegisterAttribute(name, value, boolean)
+    return {{.}}
+}
+{{end -}}
+
+{{- define TextValueAttribute .}}
+/* {{.AttributeName}}- {{.AttributeComment}}*/
+func ({{.TagName}} *{{.TagName}}Attributes) {{.AttributeName}}(value string) *{{.TagName}} {
+    {{.TagName}}.RegisterAttribute({{.AttributeValue}}, value, false)
+    return {{.TagName}}
+}
+{{end -}}
+
+{{- define BooleanAttribute .}}
+/* {{.AttributeName}}- {{.AttributeComment}}*/
+func ({{.TagName}} *{{.TagName}}Attributes) {{.AttributeName}}() *{{.TagName}} {
+    {{.TagName}}.RegisterAttribute({{.AttributeValue}}, "", true)
+    return {{.TagName}}
+}
+{{end -}}
+
+{{- define EnumValueAttribute .}}
+/* {{.AttributeName}}- {{.AttributeComment}}*/
+func ({{.TagName}} *{{.TagName}}Attributes) {{.AttributeName}}(value {{.AttributeName}}Enum) *{{.TagName}} {
+    {{.TagName}}.RegisterAttribute({{.AttributeValue}}, value.String(), false)
+    return {{.TagName}}
+}
+{{end -}}
+
+{{- define EnumSliceValueAttribute .}}
+/* {{.AttributeName}}- {{.AttributeComment}}*/
+func ({{.TagName}} *{{.TagName}}Attributes) {{.AttributeName}}(value ...{{.AttributeName}}Enum) *{{.TagName}} {
+    var out string
+    for i := 0, i < len(value)-1, i++ {
+        assert.New(slices.Contains(value, value[i]), "Assert {{.AttributeValue}} attribute require have unique list of value.")
+        out += fmt.Sprintf(" %s", value.String())
+    }
+    {{.TagName}}.RegisterAttribute({{.AttributeValue}}, out, false)
+    return {{.TagName}}
+}
+{{end -}}
+
+{{- define IntValueAttribute .}}
+/* {{.AttributeName}}- {{.AttributeComment}}*/
+func ({{.TagName}} *{{.TagName}}Attributes) {{.AttributeName}}(value int) *{{.TagName}} {
+    {{.TagName}}.RegisterAttribute({{.AttributeValue}}, fmt.Sprintf("%d", value), false)
+    return {{.TagName}}
+}
+{{end -}}
+
+{{- define UintValueAttribute .}}
+/* {{.AttributeName}}- {{.AttributeComment}}*/
+func ({{.TagName}} *{{.TagName}}Attributes) {{.AttributeName}}(value uint) *{{.TagName}} {
+    {{.TagName}}.RegisterAttribute({{.AttributeValue}}, fmt.Sprintf("%d", value), false)
+    return {{.TagName}}
+}
+{{end -}}
+
+{{- define UintGraterZeroValueAttribute .}}
+/* {{.AttributeName}}- {{.AttributeComment}}*/
+func ({{.TagName}} *{{.TagName}}Attributes) {{.AttributeName}}(value uint) *{{.TagName}} {
+    assert.New(value > 0, "Assert {{.AttributeValue}} attribute require to have value grater then zero.")
+    {{.TagName}}.RegisterAttribute({{.AttributeValue}}, fmt.Sprintf("%d", value), false)
+    return {{.TagName}}
+}
+{{end -}}
+
+{{- define FloatValueAttribute .}}
+/* {{.AttributeName}}- {{.AttributeComment}}*/
+func ({{.TagName}} *{{.TagName}}Attributes) {{.AttributeName}}(value float64) *{{.TagName}} {
+    {{.TagName}}.RegisterAttribute({{.AttributeValue}}, fmt.Sprintf("%f", value), false)
+    return {{.TagName}}
+}
+{{end -}}
+
+{{- define FloatGraterZeroValueAttribute .}}
+/* {{.AttributeName}}- {{.AttributeComment}}*/
+func ({{.TagName}} *{{.TagName}}Attributes) {{.AttributeName}}(value float64) *{{.TagName}} {
+    assert.New(value > 0, "Assert {{.AttributeValue}} attribute require to have value grater then zero.")
+    {{.TagName}}.RegisterAttribute({{.AttributeValue}}, fmt.Sprintf("%f", value), false)
+    return {{.TagName}}
+}
+{{end -}}
+
+{{- define DateValueAttribute .}}
+/* {{.AttributeName}}- {{.AttributeComment}}*/
+func ({{.TagName}} *{{.TagName}}Attributes) {{.AttributeName}}(value time.Time) *{{.TagName}} {
+    {{.TagName}}.RegisterAttribute({{.AttributeValue}}, value, false)
+    return {{.TagName}}
+}
+{{end -}}
+
+{{- define AttributeStruct .}}
+type {{.TagName}}Attributes struct {
+    base.Attributes
+}
+{{end -}}
+
+{{- define AttributeConstructor .}}
+/*AttrOf{{capitalizeFirst .TagName}}- Constructor of related attributes to this web tag*/
+func AttrOf{{capitalizeFirst .TagNamea}}() *{{.TagName}}Attributes {
+	return &{{.TagName}}Attributes{base.NewAttributes()}
+}
+{{end -}}
+
+{{- define NodeConstructorSelfClosing .}}
+/*{{capitalizeFirst .TagName}}- {{.TagComment}}*/
+func {{capitalizeFirst .TagName}}(attributes *{{.TagName}}Attributes) base.Content {
+    return base.NewSelfClosingNode(
+        "{{.TagValue}}",
+        model.{{.Namespace}},
+        attributes.Attributes,
+    )
+}
+{{end -}}
+
+{{- define NodeContructor .}}
+/*{{capitalizeFirst .TagName}}- {{.TagComment}}*/
+func {{capitalizeFirst .TagName}}(attributes *{{.TagName}}Attributes, tags ...any) base.Content {
+	var (
+		supportedNodes = []string{{{.SupportedChildren}}}
+		children       []base.Content
+	)
+	for _, tag := range tags {
+		switch t := tag.(type) {
+		case string:
+			children = append(children, stringValue(t))
+		case base.Content:
+			assert.New(
+				model.{{.Namespace}} == t.GetNamespace() {{- if .svg}}{{template "svg"}}{{end}}{{if .math}}{{template "math"}}{{end}},
+				fmt.Sprintf("Assert %s tag isn't suported inside {{.Namespace}}.", t.GetNamespace()),
+			)
+			assert.New(
+			    slices.Contains(supportedNodes, t.GetName()),
+				fmt.Sprintf("Assert %s tag isn't suported inside {{.TagName}} tag.", t.GetName()),
+			)
+			children = append(children, t)
+		default:
+			panic(fmt.Sprintf("assert \"%s\" type isn't supported.", reflect.TypeOf(t).String()))
+		}
+	}
+	return base.NewFullTagNode(
+		"{{.TagValue}}",
+		model.{{.Namespace}},
+		attributes.Attributes,
+		&children,
+	)
+}
+{{end -}}
+
+{{define svg}} || t.GetName() == "svg"{{end}}
+{{define math}} || t.GetName() == "math"{{end}}
+{{- end -}}
